@@ -1,0 +1,431 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- loader-->
+    <link href="{% static 'css/pace.min.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/pace.min.js' %}"></script>
+
+    <!-- plugins -->
+    <link href="{% static 'plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/OwlCarousel/css/owl.carousel.min.css' %}" rel="stylesheet" />
+    
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-extended.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
+
+    <title>Multiple Linear Regression</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <!--start wrapper-->
+    <div class="wrapper">
+        <!--start sidebar-->
+        {% include 'partials/sidebar.html' %}
+        <!--end sidebar-->
+
+        <!--start top header-->
+        {% include 'partials/header.html' %}
+        <!--end top header-->
+
+        <!--start page content wrapper-->
+        <div class="page-content-wrapper">
+            <!--start page content-->
+            <div class="page-content">
+
+                <!--start breadcrumb-->
+                {% include 'partials/breadcrumb.html' %}
+                <!--end breadcrumb-->
+
+                <!--start product detail-->
+                <section class="shop-page">
+                    <div class="shop-container">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+
+                                <div class="product-detail-card">
+                                    <div class="product-detail-body">
+                                        <div class="row g-0">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="image-zoom-section">
+                                                    <div class="product-gallery owl-carousel owl-theme border rounded mb-3 p-3">
+                                                        <div id="mlrGraph"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7">
+                                                <div class="product-info-section p-3">
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">Multiple Linear Regression</h3>
+                                                    
+                                                    <div class="mt-3">
+                                                        <h6>Description:</h6>
+                                                        <p class="mb-0">
+                                                            Multiple Linear Regression is a statistical method used to model the relationship between multiple independent variables and a dependent variable. It assumes a linear relationship between the variables, represented by the equation: <em>y = b0 + b1x1 + b2x2 + ... + bnxn</em>, where:
+                                                            <ul>
+                                                                <li><strong>y</strong> - Dependent Variable</li>
+                                                                <li><strong>b0</strong> - Intercept (Constant Term)</li>
+                                                                <li><strong>bn</strong> - Coefficient for independent variable <em>xn</em></li>
+                                                            </ul>
+                                                            This model is commonly used in predictive analysis to determine the strength of the relationship between variables and predict future values.
+                                                        </p>
+                                                    </div>
+                                                    <dl class="row mt-3">
+                                                        <dt class="col-sm-3">Algorithm Type</dt>
+                                                        <dd class="col-sm-9">Regression</dd>
+                                                        <dt class="col-sm-3">Input Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Independent Variables)</dd>
+                                                        <dt class="col-sm-3">Output Variables</dt>
+                                                        <dd class="col-sm-9">One (Dependent Variable)</dd>
+                                                        <dt class="col-sm-3">Applications</dt>
+                                                        <dd class="col-sm-9">
+                                                            <ul>
+                                                                <li>Predictive Analysis</li>
+                                                                <li>Trend Estimation</li>
+                                                                <li>Marketing Analysis</li>
+                                                                <li>Sales Forecasting</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                    
+                                                    <hr/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                </div>
+
+                                <!--start product more info-->
+                                <div class="product-more-info mt-4">
+                                    <ul class="nav nav-tabs mb-0" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Description</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#advantages-disadvantages" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Advantages & Disadvantages</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#use-cases" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Use Cases</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#implementation" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Implementation</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#faqs" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">FAQs</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                            <p>
+                                                Multiple Linear Regression is a statistical method used to understand the relationship between multiple independent variables and one dependent variable. The relationship is assumed to be linear and is expressed in the form of a mathematical equation:
+                                            </p>
+                                            <blockquote>
+                                                <strong>y = b0 + b1x1 + b2x2 + ... + bnxn</strong>
+                                            </blockquote>
+                                            <ul>
+                                                <li><strong>y</strong> - Dependent Variable (Target)</li>
+                                                <li><strong>b0</strong> - Intercept (Constant Term)</li>
+                                                <li><strong>bn</strong> - Coefficient for independent variable <em>xn</em></li>
+                                            </ul>
+                                            <h5>Key Characteristics:</h5>
+                                            <ul>
+                                                <li>
+                                                    <strong>Coefficients (bn):</strong> Represent how much the dependent variable changes for a one-unit change in each independent variable.
+                                                </li>
+                                                <li>
+                                                    <strong>Intercept (b0):</strong> Represents the value of the dependent variable when all independent variables are zero.
+                                                </li>
+                                                <li>
+                                                    <strong>Line of Best Fit:</strong> The line (or hyperplane) that minimizes the sum of squared differences between observed and predicted values.
+                                                </li>
+                                            </ul>
+                                            <h5>Assumptions:</h5>
+                                            <ul>
+                                                <li>
+                                                    <strong>Linearity:</strong> The relationship between the independent and dependent variables should be linear.
+                                                </li>
+                                                <li>
+                                                    <strong>Homoscedasticity:</strong> The variance of residuals (error terms) should be constant across all levels of the independent variables.
+                                                </li>
+                                                <li>
+                                                    <strong>Independence of Errors:</strong> The residuals should be independent of each other.
+                                                </li>
+                                                <li>
+                                                    <strong>Normality:</strong> The residuals should follow a normal distribution.
+                                                </li>
+                                                <li>
+                                                    <strong>Multicollinearity:</strong> Independent variables should not be highly correlated with each other.
+                                                </li>
+                                            </ul>
+                                            <h5>Applications:</h5>
+                                            <ul>
+                                                <li>
+                                                    <strong>Predictive Analysis:</strong> Predict future outcomes based on existing data.
+                                                </li>
+                                                <li>
+                                                    <strong>Trend Estimation:</strong> Understand and project trends in historical data.
+                                                </li>
+                                                <li>
+                                                    <strong>Marketing Analysis:</strong> Estimate the impact of marketing strategies on sales.
+                                                </li>
+                                                <li>
+                                                    <strong>Sales Forecasting:</strong> Predict future sales based on past performance.
+                                                </li>
+                                            </ul>
+                                            <h5>Example:</h5>
+                                            <p>
+                                                Suppose we want to understand the relationship between marketing budget (x1), pricing (x2), and sales (y). A multiple linear regression model can help us predict the sales based on the marketing budget and pricing.
+                                            </p>
+                                            <p class="mb-1">
+                                                In this example, the independent variables (x1, x2) are the marketing budget and pricing, and the dependent variable (y) is the sales.
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <strong>Equation:</strong> <em>y = 5 + 1.2x1 + 0.8x2</em>
+                                                </li>
+                                                <li>
+                                                    <strong>Interpretation:</strong>
+                                                    <ul>
+                                                        <li>
+                                                            <strong>Coefficient (1.2 for x1):</strong> For every increase of 1 unit in the marketing budget, sales increase by 1.2 units.
+                                                        </li>
+                                                        <li>
+                                                            <strong>Coefficient (0.8 for x2):</strong> For every increase of 1 unit in pricing, sales increase by 0.8 units.
+                                                        </li>
+                                                        <li>
+                                                            <strong>Intercept (5):</strong> When marketing budget and pricing are zero, expected sales are 5 units.
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <h5>Conclusion:</h5>
+                                            <p>
+                                                Multiple Linear Regression is a powerful tool for predictive analysis when the relationship between the variables is linear. By understanding its assumptions and limitations, it can provide significant insights and accurate predictions in various domains.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
+                                            <h5>Advantages:</h5>
+                                            <ul>
+                                                <li><strong>Flexibility:</strong> Can model multiple independent variables simultaneously.</li>
+                                                <li><strong>Interpretability:</strong> Coefficients provide insights into the relationship between variables.</li>
+                                                <li><strong>Predictive Power:</strong> Effective for forecasting and predictive analysis.</li>
+                                                <li><strong>Low Computational Cost:</strong> Requires minimal computational resources.</li>
+                                            </ul>
+                                            <h5>Disadvantages:</h5>
+                                            <ul>
+                                                <li><strong>Linearity Assumption:</strong> Assumes a linear relationship between the variables, which might not hold true in all cases.</li>
+                                                <li><strong>Multicollinearity:</strong> Independent variables should not be highly correlated.</li>
+                                                <li><strong>Overfitting:</strong> Can overfit the data if the model is too complex.</li>
+                                                <li><strong>Sensitivity to Outliers:</strong> Outliers can disproportionately influence the results.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="use-cases" role="tabpanel">
+                                            <h5>Use Cases:</h5>
+                                            <ul>
+                                                <li><strong>Marketing Analysis:</strong> Estimate the impact of marketing strategies on sales.</li>
+                                                <li><strong>Financial Forecasting:</strong> Predict future stock prices based on historical data.</li>
+                                                <li><strong>Healthcare Analysis:</strong> Model the relationship between treatment hours and recovery time.</li>
+                                                <li><strong>Educational Research:</strong> Predict student performance based on study hours.</li>
+                                                <li><strong>Economics Research:</strong> Analyze the relationship between unemployment and inflation rates.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="implementation" role="tabpanel">
+                                            <h5>Implementation Steps:</h5>
+                                            <ol>
+                                                <li><strong>Data Collection:</strong> Gather data with multiple independent variables and one dependent variable.</li>
+                                                <li><strong>Data Preprocessing:</strong> Clean and normalize the data to handle outliers or missing values.</li>
+                                                <li><strong>Model Fitting:</strong> Use multiple linear regression algorithms to fit the model.</li>
+                                                <li><strong>Model Evaluation:</strong> Evaluate model performance using R-squared, RMSE, etc.</li>
+                                                <li><strong>Prediction:</strong> Use the trained model to make predictions on new data.</li>
+                                            </ol>
+                                            <h5>Example Code:</h5>
+                                            <pre><code class="language-python">
+# Python Code for Multiple Linear Regression
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Create synthetic data
+np.random.seed(42)
+x1 = np.random.rand(100, 1) * 10
+x2 = np.random.rand(100, 1) * 5
+y = 5 + 1.2 * x1 + 0.8 * x2 + np.random.randn(100, 1) * 0.5
+
+# Combine features into a single matrix
+X = np.hstack((x1, x2))
+
+# Train the model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predict
+y_pred = model.predict(X)
+
+# Plot
+fig = plt.figure(figsize=(10, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x1, x2, y, color='blue', label='Data Points')
+ax.plot_trisurf(x1.flatten(), x2.flatten(), y_pred.flatten(), color='red', alpha=0.5, label='Regression Surface')
+ax.set_xlabel('Marketing Budget (x1)')
+ax.set_ylabel('Pricing (x2)')
+ax.set_zlabel('Sales (y)')
+ax.legend()
+plt.show()
+                                            </code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="faqs" role="tabpanel">
+                                            <h5>Frequently Asked Questions (FAQs):</h5>
+                                            <ul>
+                                                <li><strong>Q:</strong> What is the difference between Simple and Multiple Linear Regression?</li>
+                                                <li><strong>A:</strong> Simple Linear Regression models the relationship between one independent variable and one dependent variable, while Multiple Linear Regression involves multiple independent variables.</li>
+                                                <li><strong>Q:</strong> How do you interpret the coefficients of a multiple linear regression model?</li>
+                                                <li><strong>A:</strong>
+                                                    <ul>
+                                                        <li><strong>Coefficients:</strong> Represent the rate of change of the dependent variable concerning each independent variable.</li>
+                                                        <li><strong>Intercept:</strong> Represents the value of the dependent variable when all independent variables are zero.</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Q:</strong> What is Multicollinearity?</li>
+                                                <li><strong>A:</strong> Multicollinearity is a situation where independent variables are highly correlated with each other, leading to unreliable coefficient estimates.</li>
+                                                <li><strong>Q:</strong> How do you handle multicollinearity in multiple linear regression?</li>
+                                                <li><strong>A:</strong> Multicollinearity can be handled by:
+                                                    <ul>
+                                                        <li>Removing highly correlated variables.</li>
+                                                        <li>Combining correlated variables into a single variable (feature engineering).</li>
+                                                        <li>Using regularization techniques like Ridge or Lasso regression.</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end product more info-->
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--end product detail-->
+
+            </div>
+            <!--end page content-->
+        </div>
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!--End Back To Top Button-->
+  
+        <!--start switcher-->
+        {% include 'partials/switcher.html' %}
+        <!--end switcher-->
+
+        <!--start overlay-->
+        <div class="overlay nav-toggle-icon"></div>
+        <!--end overlay-->
+
+    </div>
+    <!--end wrapper-->
+
+    <!-- JS Files-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--plugins-->
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel/js/owl.carousel2.thumbs.min.js' %}"></script>
+    <script src="{% static 'js/product-details.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Plotly Graph Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate synthetic data
+            function generateData() {
+                let x1 = [], x2 = [], y = [];
+                for (let i = 0; i < 100; i++) {
+                    let x1Val = Math.random() * 10;
+                    let x2Val = Math.random() * 5;
+                    let yVal = 5 + 1.2 * x1Val + 0.8 * x2Val + (Math.random() - 0.5) * 0.5;
+                    x1.push(x1Val);
+                    x2.push(x2Val);
+                    y.push(yVal);
+                }
+                return {x1, x2, y};
+            }
+
+            let data = generateData();
+
+            // Plotly data
+            let trace = {
+                x: data.x1,
+                y: data.x2,
+                z: data.y,
+                mode: 'markers',
+                marker: {
+                    size: 5,
+                    color: 'tel'
+                },
+                type: 'scatter3d'
+            };
+
+            // Layout settings
+            let layout = {
+                title: 'Multiple Linear Regression - 3D Plot',
+                scene: {
+                    xaxis: {title: 'Marketing Budget (x1)'},
+                    yaxis: {title: 'Pricing (x2)'},
+                    zaxis: {title: 'Sales (y)'}
+                }
+            };
+
+            // Plot the graph
+            Plotly.newPlot('mlrGraph', [trace], layout);
+        });
+    </script>
+
+</body>
+</html>

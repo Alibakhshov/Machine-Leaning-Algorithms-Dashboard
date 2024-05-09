@@ -40,3 +40,10 @@ def simple_linear_regression(request):
     graph_html = pio.to_html(fig, full_html=False)
 
     return render(request, 'algorithms/simple-linear-regression.html', {'graph_html': graph_html})
+
+######################################## MULTIPLE LINEAR REGRESSION ######################################
+
+
+
+def multiple_linear_regression(request):
+    return render(request, 'algorithms/multiple_linear_regression.html')
