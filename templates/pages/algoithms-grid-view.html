@@ -265,12 +265,12 @@
                                               </div>
                                               <hr>
           
-                                              <!-- Button to Apply Filters -->
+                                              <!-- Button to Reset Filters -->
                                               <div class="apply-filters">
-                                                  <h6 class="text-uppercase mb-3">Apply Filters</h6>
-                                                  <div class="d-flex align-items-center">
-                                                      <button type="button" class="btn btn-primary btn-sm text-uppercase rounded font-13 fw-500" id="filterButton">Filter</button>
-                                                  </div>
+                                                <h6 class="text-uppercase mb-3">Reset Filters</h6>
+                                                <div class="d-flex align-items-center">
+                                                    <button type="button" class="btn btn-primary btn-sm text-uppercase rounded font-13 fw-500" id="resetButton">Reset</button>
+                                                </div>
                                               </div>
                                           </div>
                                       </div>
@@ -732,7 +732,7 @@
     <script src="{% static 'js/main.js' %}"></script>
 
     <script>
-      document.getElementById('filterButton').addEventListener('click', filterCards);
+      document.getElementById('resetButton').addEventListener('click', resetFilters);
       const algorithmFilters = document.querySelectorAll('.algorithm-filter');
       const categoryFilters = document.querySelectorAll('.category-filter');
   
@@ -762,6 +762,16 @@
           });
       }
   
+      function resetFilters() {
+          // Clear all checkboxes
+          algorithmFilters.forEach(checkbox => checkbox.checked = false);
+          categoryFilters.forEach(checkbox => checkbox.checked = false);
+  
+          // Show all cards
+          const cards = document.querySelectorAll('.card-item');
+          cards.forEach(card => card.style.display = 'block');
+      }
+  
       categoryFilters.forEach(checkbox => {
           checkbox.addEventListener('change', filterCards);
       });
@@ -780,6 +790,7 @@
           });
       });
   </script>
+  
   
 
   </body>
