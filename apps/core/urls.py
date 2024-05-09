@@ -14,5 +14,6 @@ urlpatterns = [
     path('adaboost-classifier/', views.adaboost_classifier, name='adaboost_classifier'),
     path('xgboost-classifier/', views.xgboost_classifier, name='xgboost_classifier'),
     path('overfitting-underfitting/', views.overfitting_underfitting, name='overfitting_underfitting'),
+    path('cross-validation/', views.cross_validation, name='cross_validation'),
 ]
 

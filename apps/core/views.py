@@ -390,3 +390,87 @@ def overfitting_underfitting(request):
     }
     return render(request, 'algorithms/overfitting_underfitting.html', context)
 
+######################################### Cross Validation ###################################################
+
+from django.shortcuts import render
+import matplotlib
+matplotlib.use('Agg')  # Set the backend to Agg
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from sklearn.model_selection import KFold, LeaveOneOut, cross_val_score
+from sklearn.linear_model import LinearRegression
+from sklearn.datasets import make_regression
+import plotly.graph_objects as go
+import base64
+import io
+import urllib
+
+def cross_validation(request):
+    # Generate synthetic data
+    X, y = make_regression(n_samples=100, n_features=1, noise=10, random_state=42)
+
+    # Initialize the model
+    model = LinearRegression()
+
+    # Use Mean Absolute Error as the scoring metric
+    scoring = 'neg_mean_absolute_error'
+
+    # Implement K-Fold Cross-Validation
+    kf = KFold(n_splits=5, shuffle=True, random_state=42)
+    kfold_scores = cross_val_score(model, X, y, cv=kf, scoring=scoring)
+
+    # Implement Leave-One-Out Cross-Validation
+    loo = LeaveOneOut()
+    loo_scores = cross_val_score(model, X, y, cv=loo, scoring=scoring)
+
+    # Convert scores to positive values for better visualization
+    kfold_scores = -kfold_scores
+    loo_scores = -loo_scores
+
+    # Compute the mean scores
+    kfold_mean_score = np.mean(kfold_scores)
+    loo_mean_score = np.mean(loo_scores)
+
+    # Plot K-Fold Cross-Validation Scores
+    fig1 = go.Figure()
+    fig1.add_trace(go.Scatter(x=list(range(1, len(kfold_scores) + 1)), y=kfold_scores, mode='lines+markers', name='K-Fold Scores'))
+    fig1.update_layout(title='K-Fold Cross-Validation Scores',
+                       xaxis_title='Fold Number',
+                       yaxis_title='Mean Absolute Error (MAE)')
+    kfold_html = fig1.to_html(full_html=False)
+
+    # Boxplot of Cross-Validation Scores
+    plt.figure(figsize=(8, 6))
+    sns.boxplot(data=[kfold_scores, loo_scores], notch=True)
+    plt.xticks([0, 1], ['K-Fold', 'Leave-One-Out'])
+    plt.ylabel('Mean Absolute Error (MAE)')
+    plt.title('Cross-Validation Score Distribution')
+
+    # Save the boxplot image
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    boxplot_image = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    # Create a comparison graph between K-Fold and LOOCV mean scores
+    comparison_fig = go.Figure()
+    comparison_fig.add_trace(go.Bar(
+        x=['K-Fold Mean Score', 'LOOCV Mean Score'],
+        y=[kfold_mean_score, loo_mean_score],
+        text=[f'{kfold_mean_score:.4f}', f'{loo_mean_score:.4f}'],
+        textposition='auto',
+        name='Cross-Validation Mean Scores'
+    ))
+    comparison_fig.update_layout(title='Comparison of Mean Scores between K-Fold and LOOCV',
+                                 xaxis_title='Cross-Validation Technique',
+                                 yaxis_title='Mean Absolute Error (MAE)')
+    comparison_html = comparison_fig.to_html(full_html=False)
+
+    context = {
+        'kfold_html': kfold_html,
+        'boxplot_image': boxplot_image,
+        'comparison_html': comparison_html
+    }
+    return render(request, 'algorithms/cross_validation.html', context)
