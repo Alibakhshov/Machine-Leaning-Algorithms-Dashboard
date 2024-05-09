@@ -1,29 +1,45 @@
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">Dashboard</div>
-    <div class="ps-3">
+  <div class="breadcrumb-title pe-3">Dashboard</div>
+  <div class="ps-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 p-0 align-items-center">
-          <li class="breadcrumb-item"><a href="javascript:;">
-              <ion-icon name="home-outline"></ion-icon>
-            </a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">eCommerce</li>
-        </ol>
+          <ol class="breadcrumb mb-0 p-0 align-items-center">
+              <li class="breadcrumb-item"><a href="javascript:;">
+                  <ion-icon name="home-outline"></ion-icon>
+              </a></li>
+              {% if request.path == '/simple-linear-regression/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Simple Linear Regression</li>
+              {% elif request.path == '/multiple-linear-regression/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Multiple Linear Regression</li>
+              {% elif request.path == '/k-nearest-neighbor/' %}
+                  <li class="breadcrumb-item active" aria-current="page">K Nearest Neighbor</li>
+              {% elif request.path == '/logistic-regression/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Logistic Regression</li>
+              {% elif request.path == '/naive-bayes/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Naive Bayes</li>
+              {% elif request.path == '/decision-tree-classifier/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Decision Tree Classifier</li>
+              {% elif request.path == '/random-forest-classifier/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Random Forest Classifier</li>
+              {% elif request.path == '/adaboost-classifier/' %}
+                  <li class="breadcrumb-item active" aria-current="page">AdaBoost Classifier</li>
+              {% elif request.path == '/xgboost-classifier/' %}
+                  <li class="breadcrumb-item active" aria-current="page">XGBoost Classifier</li>
+              {% elif request.path == '/overfitting-underfitting/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Overfitting Underfitting</li>
+              {% elif request.path == '/cross-validation/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Cross Validation</li>
+              {% elif request.path == '/neural-network/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Neural Network</li>
+              {% elif request.path == '/recurrent-neural-network/' %}
+                  <li class="breadcrumb-item active" aria-current="page">Recurrent Neural Network</li>
+              {% elif request.path == '/lstm/' %}
+                  <li class="breadcrumb-item active" aria-current="page">LSTM</li>
+              {% elif request.path == '/cnn/' %}
+                  <li class="breadcrumb-item active" aria-current="page">CNN</li>
+              {% else %}
+                  <li class="breadcrumb-item active" aria-current="page">Algorithms</li>
+              {% endif %}
+          </ol>
       </nav>
-    </div>
-    <div class="ms-auto">
-      <div class="btn-group">
-        <button type="button" class="btn btn-outline-primary">Settings</button>
-        <button type="button"
-          class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-            href="javascript:;">Action</a>
-          <a class="dropdown-item" href="javascript:;">Another action</a>
-          <a class="dropdown-item" href="javascript:;">Something else here</a>
-          <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-        </div>
-      </div>
-    </div>
   </div>
+</div>
