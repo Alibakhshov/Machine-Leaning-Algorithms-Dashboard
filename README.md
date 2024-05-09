@@ -4,7 +4,7 @@
 ## Introduction
 Welcome to the Machine Learning Dashboard website! This platform is a comprehensive resource for understanding and visualizing machine learning algorithms. Each algorithm is presented with a detailed explanation, interactive visualizations, and practical examples.
 
-![ML Dashboard Logo](static/images/A_modern_and_tech-savvy_logo_for_a_machine_learnin.png)
+![ML Dashboard Logo](static/images/logo.png)
 
 ## Features
 - **Algorithms Covered**: A wide range of machine learning algorithms like KNN, Logistic Regression, Decision Trees, Random Forest, Neural Networks, and more.
@@ -46,7 +46,7 @@ Welcome to the Machine Learning Dashboard website! This platform is a comprehens
 
 ## Algorithms Covered
 ### 1. Simple Linear Regression
-![Simple Linear Regression Graph](static/images/simple-linear-regression.png)
+![Simple Linear Regression Graph](templates/algorithms/simple-linear-regression.html)
 
 **Description:**
 Simple Linear Regression is a statistical method used to understand the relationship between one independent variable and one dependent variable.
