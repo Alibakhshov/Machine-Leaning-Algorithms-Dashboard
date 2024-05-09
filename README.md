@@ -46,7 +46,6 @@ Welcome to the Machine Learning Dashboard website! This platform is a comprehens
 
 ## Algorithms Covered
 ### 1. Simple Linear Regression
-![Simple Linear Regression Graph](templates/algorithms/simple-linear-regression.html)
 
 **Description:**
 Simple Linear Regression is a statistical method used to understand the relationship between one independent variable and one dependent variable.
@@ -56,7 +55,6 @@ Simple Linear Regression is a statistical method used to understand the relation
 - **Applications:** Predictive analysis, trend estimation, stock market analysis, sales forecasting.
 
 ### 2. K-Nearest Neighbors (KNN)
-![KNN Graph](static/images/knn.png)
 
 **Description:**
 K-Nearest Neighbors is a simple, non-parametric algorithm used for classification and regression.
@@ -66,7 +64,6 @@ K-Nearest Neighbors is a simple, non-parametric algorithm used for classificatio
 - **Applications:** Image classification, fraud detection, recommender systems.
 
 ### 3. Decision Tree Classifier
-![Decision Tree Graph](static/images/decision-tree.png)
 
 **Description:**
 A decision tree classifier is a predictive model that maps features to target labels using a tree-like structure.
@@ -76,7 +73,6 @@ A decision tree classifier is a predictive model that maps features to target la
 - **Applications:** Credit scoring, disease diagnosis, customer segmentation.
 
 ### 4. Convolutional Neural Network (CNN)
-![CNN Graph](static/images/cnn.png)
 
 **Description:**
 CNNs are a type of deep learning model specifically designed for image processing and classification tasks.
@@ -86,7 +82,6 @@ CNNs are a type of deep learning model specifically designed for image processin
 - **Applications:** Image classification, object detection, face recognition.
 
 ### 5. Long Short-Term Memory (LSTM)
-![LSTM Graph](static/images/lstm.png)
 
 **Description:**
 LSTM networks are a type of recurrent neural network capable of learning long-term dependencies in sequential data.
@@ -96,7 +91,6 @@ LSTM networks are a type of recurrent neural network capable of learning long-te
 - **Applications:** Stock price prediction, text generation, speech recognition.
 
 ### 6. XGBoost
-![XGBoost Graph](static/images/xgboost.png)
 
 **Description:**
 XGBoost is an optimized gradient boosting library designed to be efficient, flexible, and portable.
@@ -115,8 +109,8 @@ XGBoost is an optimized gradient boosting library designed to be efficient, flex
 ### Installation
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/ml-dashboard.git
-   cd ml-dashboard
+   git clone https://github.com/Alibakhshov/ML-Algorithm-Dashboard.git
+   cd MLdashboard
    ```
 
 2. **Create and Activate Virtual Environment:**
@@ -139,21 +133,5 @@ XGBoost is an optimized gradient boosting library designed to be efficient, flex
 1. Open your browser and navigate to `http://127.0.0.1:8000/`
 2. Explore the algorithms, interactive visualizations, and practical guides.
 
-## Contribution Guidelines
-We welcome contributions from the community. Here's how you can contribute:
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Submit a pull request.
 
-## License
-This project is licensed under the MIT License.
-
-## Contact
-If you have any questions or feedback, feel free to reach out.
-
-### Authors
-- Your Name - [GitHub](https://github.com/Alibakhshov)
-```
-
-Let me know if you'd like further adjustments or changes!
+### Screenshots
