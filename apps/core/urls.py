@@ -16,5 +16,6 @@ urlpatterns = [
     path('overfitting-underfitting/', views.overfitting_underfitting, name='overfitting_underfitting'),
     path('cross-validation/', views.cross_validation, name='cross_validation'),
     path('neural-network/', views.neural_network, name='neural_network'),
+    path('recurrent-neural-network/', views.recurrent_neural_network, name='recurrent_neural_network'),
 ]
 

@@ -1,0 +1,284 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- plugins -->
+    <link href="{% static 'plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-extended.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
+
+    <title>Recurrent Neural Network (RNN)</title>
+</head>
+<body>
+    <!-- Start Wrapper -->
+    <div class="wrapper">
+        <!-- Start Sidebar -->
+        {% include 'partials/sidebar.html' %}
+        <!-- End Sidebar -->
+
+        <!-- Start Top Header -->
+        {% include 'partials/header.html' %}
+        <!-- End Top Header -->
+
+        <!-- Start Page Content Wrapper -->
+        <div class="page-content-wrapper">
+            <!-- Start Page Content -->
+            <div class="page-content">
+
+                <!-- Start Breadcrumb -->
+                {% include 'partials/breadcrumb.html' %}
+                <!-- End Breadcrumb -->
+
+                <!-- Start Product Detail -->
+                <section class="shop-page">
+                    <div class="shop-container">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+                                <div class="product-detail-card">
+                                    <div class="product-detail-body">
+                                        <div class="row g-0">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="image-zoom-section">
+                                                    <div class="border rounded mb-3 p-3">
+                                                        <img src="{{ confusion_image }}" alt="Confusion Matrix" style="width:100%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7">
+                                                <div class="product-info-section p-3">
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">Recurrent Neural Network (RNN)</h3>
+                                                    
+                                                    <div class="mt-3">
+                                                        <h6>Description:</h6>
+                                                        <p class="mb-0">
+                                                            Recurrent Neural Networks (RNNs) are a class of neural networks specialized for processing sequential data. The most common variant is the Long Short-Term Memory (LSTM) network.
+                                                        </p>
+                                                    </div>
+                                                    <dl class="row mt-3">
+                                                        <dt class="col-sm-3">Accuracy</dt>
+                                                        <dd class="col-sm-9">{{ accuracy }}</dd>
+                                                        <dt class="col-sm-3">Type</dt>
+                                                        <dd class="col-sm-9">Classification</dd>
+                                                        <dt class="col-sm-3">Input Variables</dt>
+                                                        <dd class="col-sm-9">Time Series Data</dd>
+                                                        <dt class="col-sm-3">Layers</dt>
+                                                        <dd class="col-sm-9">
+                                                            <ul>
+                                                                <li>Input Layer (Time Series)</li>
+                                                                <li>Hidden Layer 1 (LSTM, 50 Units)</li>
+                                                                <li>Hidden Layer 2 (LSTM, 50 Units)</li>
+                                                                <li>Output Layer (1 Neuron)</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph Plots -->
+                                <div class="product-more-info mt-4">
+                                    {{ training_html|safe }}
+                                </div>
+
+                                <div class="product-more-info mt-4">
+                                    {{ confusion_html|safe }}
+                                </div>
+
+                                <!-- Detailed Information Section -->
+                                <div class="product-more-info mt-4">
+                                    <ul class="nav nav-tabs mb-0" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Description</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#advantages-disadvantages" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Advantages & Disadvantages</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#use-cases" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Use Cases</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#implementation" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Implementation</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#faqs" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">FAQs</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                            <h5>Description:</h5>
+                                            <p>
+                                                Recurrent Neural Networks (RNNs) are a class of neural networks specialized for sequential data processing. LSTMs are the most popular RNN variant because of their ability to learn long-term dependencies.
+                                            </p>
+                                            <h5>Key Characteristics:</h5>
+                                            <ul>
+                                                <li><strong>Time Steps:</strong> Processes input data over multiple time steps.</li>
+                                                <li><strong>Hidden State:</strong> Maintains a state across time steps to learn patterns.</li>
+                                                <li><strong>Memory Cells:</strong> LSTMs and GRUs store information over long sequences.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
+                                            <h5>Advantages:</h5>
+                                            <ul>
+                                                <li><strong>Sequential Data:</strong> Specially designed for time series and sequential data.</li>
+                                                <li><strong>Long-Term Dependencies:</strong> Learns long-term dependencies effectively.</li>
+                                            </ul>
+                                            <h5>Disadvantages:</h5>
+                                            <ul>
+                                                <li><strong>Computationally Expensive:</strong> Training takes longer due to sequential processing.</li>
+                                                <li><strong>Vanishing Gradient Problem:</strong> Can struggle with very long sequences.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="use-cases" role="tabpanel">
+                                            <h5>Use Cases:</h5>
+                                            <ul>
+                                                <li><strong>Stock Price Prediction:</strong> Predict future stock prices based on historical trends.</li>
+                                                <li><strong>Text Generation:</strong> Generate text by learning language patterns.</li>
+                                                <li><strong>Speech Recognition:</strong> Convert speech to text and vice versa.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="implementation" role="tabpanel">
+                                            <h5>Implementation Steps:</h5>
+                                            <ol>
+                                                <li><strong>Data Collection:</strong> Gather training data.</li>
+                                                <li><strong>Data Preprocessing:</strong> Normalize and clean the data.</li>
+                                                <li><strong>Model Building:</strong> Build an RNN model using Keras or similar frameworks.</li>
+                                                <li><strong>Model Training:</strong> Train the model using training data.</li>
+                                                <li><strong>Model Evaluation:</strong> Evaluate model performance using test data.</li>
+                                            </ol>
+                                            <h5>Example Code:</h5>
+                                            <pre><code class="language-python">
+                # Python Code for RNN Implementation
+                import numpy as np
+                from sklearn.model_selection import train_test_split
+                from tensorflow.keras.models import Sequential
+                from tensorflow.keras.layers import Dense, LSTM, Dropout
+
+                # Generate synthetic time series data
+                def generate_time_series_data(n_samples=500, n_time_steps=10):
+                    X = np.zeros((n_samples, n_time_steps, 1))
+                    y = np.zeros((n_samples,))
+
+                    for i in range(n_samples):
+                        trend = np.random.uniform(-0.5, 0.5)
+                        noise = np.random.normal(scale=0.1, size=n_time_steps)
+                        series = trend * np.arange(n_time_steps) + noise
+                        X[i, :, 0] = series
+                        y[i] = 1 if trend > 0 else 0
+
+                    return X, y
+
+                X, y = generate_time_series_data()
+
+                # Split into training and test sets
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Build an LSTM-based Recurrent Neural Network model
+                model = Sequential([
+                    LSTM(50, return_sequences=True, input_shape=(X_train.shape[1], X_train.shape[2])),
+                    Dropout(0.2),
+                    LSTM(50, return_sequences=False),
+                    Dropout(0.2),
+                    Dense(1, activation='sigmoid')
+                ])
+
+                model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+                # Train the model
+                model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=30, batch_size=32)
+                                            </code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="faqs" role="tabpanel">
+                                            <h5>Frequently Asked Questions (FAQs):</h5>
+                                            <ul>
+                                                <li><strong>Q:</strong> What is the difference between RNNs and LSTMs?</li>
+                                                <li><strong>A:</strong> LSTMs are an advanced variant of RNNs that can learn long-term dependencies effectively.</li>
+                                                <li><strong>Q:</strong> Can RNNs process non-sequential data?</li>
+                                                <li><strong>A:</strong> RNNs are primarily designed for sequential data, but can be adapted for non-sequential tasks.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Product Detail -->
+
+            </div>
+            <!-- End Page Content -->
+        </div>
+        <!-- End Page Content Wrapper -->
+
+        <!-- Start Back To Top Button -->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!-- End Back To Top Button -->
+
+        <!-- Start Switcher -->
+        {% include 'partials/switcher.html' %}
+        <!-- End Switcher -->
+
+        <!-- Start Overlay -->
+        <div class="overlay nav-toggle-icon"></div>
+        <!-- End Overlay -->
+
+    </div>
+    <!-- End Wrapper -->
+
+    <!-- JS Files -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!-- plugins -->
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

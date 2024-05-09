@@ -566,3 +566,112 @@ def neural_network(request):
     }
 
     return render(request, 'algorithms/neural_network.html', context)
+
+######################################### Recurrent Neural Network (RNN) ###################################################
+
+from django.shortcuts import render
+import matplotlib
+matplotlib.use('Agg')  # Set the backend to Agg
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from sklearn.model_selection import train_test_split
+import plotly.graph_objects as go
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM, Dropout
+import base64
+import io
+import urllib
+
+# Generate synthetic time series data
+def generate_time_series_data(n_samples=500, n_time_steps=10):
+    """
+    Generates synthetic time series data for classification.
+    - `n_samples`: Number of samples
+    - `n_time_steps`: Number of time steps
+    Returns:
+    - X: Features of shape (n_samples, n_time_steps, 1)
+    - y: Labels of shape (n_samples,)
+    """
+    X = np.zeros((n_samples, n_time_steps, 1))
+    y = np.zeros((n_samples,))
+
+    for i in range(n_samples):
+        trend = np.random.uniform(-0.5, 0.5)
+        noise = np.random.normal(scale=0.1, size=n_time_steps)
+        series = trend * np.arange(n_time_steps) + noise
+        X[i, :, 0] = series
+        y[i] = 1 if trend > 0 else 0
+
+    return X, y
+
+def recurrent_neural_network(request):
+    # Generate synthetic time series data
+    X, y = generate_time_series_data()
+
+    # Split into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Build an LSTM-based Recurrent Neural Network model
+    model = Sequential([
+        LSTM(50, return_sequences=True, input_shape=(X_train.shape[1], X_train.shape[2])),
+        Dropout(0.2),
+        LSTM(50, return_sequences=False),
+        Dropout(0.2),
+        Dense(1, activation='sigmoid')
+    ])
+
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+    # Train the model
+    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=30, batch_size=32, verbose=0)
+
+    # Evaluate the model
+    loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+
+    # Plot the training history
+    fig1 = go.Figure()
+    fig1.add_trace(go.Scatter(x=list(range(1, 31)), y=history.history['accuracy'], mode='lines+markers', name='Training Accuracy'))
+    fig1.add_trace(go.Scatter(x=list(range(1, 31)), y=history.history['val_accuracy'], mode='lines+markers', name='Validation Accuracy'))
+    fig1.update_layout(title='RNN Training History',
+                       xaxis_title='Epoch',
+                       yaxis_title='Accuracy')
+    training_html = fig1.to_html(full_html=False)
+
+    # Confusion matrix
+    y_pred = (model.predict(X_test) > 0.5).astype("int32").flatten()
+    confusion_matrix = np.zeros((2, 2))
+    for true, pred in zip(y_test, y_pred):
+        confusion_matrix[int(true), int(pred)] += 1
+
+    fig2 = go.Figure(data=[go.Heatmap(
+        z=confusion_matrix,
+        x=['Predicted Negative', 'Predicted Positive'],
+        y=['Actual Negative', 'Actual Positive'],
+        colorscale='Blues'
+    )])
+    fig2.update_layout(title='Confusion Matrix',
+                       xaxis_title='Predicted Label',
+                       yaxis_title='Actual Label')
+    confusion_html = fig2.to_html(full_html=False)
+
+    # Classification Report Image
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(confusion_matrix, annot=True, fmt="0.2f", cmap="Blues", cbar=False)
+    plt.ylabel("Actual")
+    plt.xlabel("Predicted")
+    plt.title("Confusion Matrix")
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    confusion_image = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    context = {
+        'training_html': training_html,
+        'confusion_html': confusion_html,
+        'confusion_image': confusion_image,
+        'accuracy': f'{accuracy:.4f}'
+    }
+
+    return render(request, 'algorithms/rnn.html', context)
