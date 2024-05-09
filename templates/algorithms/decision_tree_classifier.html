@@ -32,7 +32,7 @@
     <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
     <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
 
-    <title>Naive Bayes Classifier</title>
+    <title>Decision Tree Classifier</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
@@ -68,18 +68,18 @@
                                             <div class="col-12 col-lg-5">
                                                 <div class="image-zoom-section">
                                                     <div class="border rounded mb-3 p-3">
-                                                        <div id="naiveBayesGraph" style="height: 450px;"></div>
+                                                        <div id="decisionTreeGraph" style="height: 450px;"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-7">
                                                 <div class="product-info-section p-3">
-                                                    <h3 class="mt-3 mt-lg-0 mb-0">Naive Bayes Classifier</h3>
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">Decision Tree Classifier</h3>
                                                     
                                                     <div class="mt-3">
                                                         <h6>Description:</h6>
                                                         <p class="mb-0">
-                                                            Naive Bayes Classifier is a probabilistic machine learning algorithm based on Bayes' theorem. It is "naive" because it assumes independence between features. It is primarily used for classification tasks and works well with high-dimensional data.
+                                                            Decision Tree Classifier is a machine learning algorithm used for both classification and regression tasks. It works by splitting the data into subsets based on feature values, creating a tree-like structure of decision rules.
                                                         </p>
                                                     </div>
                                                     <dl class="row mt-3">
@@ -92,10 +92,10 @@
                                                         <dt class="col-sm-3">Applications</dt>
                                                         <dd class="col-sm-9">
                                                             <ul>
-                                                                <li>Spam Detection</li>
-                                                                <li>Document Classification</li>
-                                                                <li>Sentiment Analysis</li>
                                                                 <li>Predictive Analysis</li>
+                                                                <li>Medical Diagnosis</li>
+                                                                <li>Customer Churn Prediction</li>
+                                                                <li>Fraud Detection</li>
                                                             </ul>
                                                         </dd>
                                                     </dl>
@@ -150,69 +150,68 @@
                                     <div class="tab-content pt-3">
                                         <div class="tab-pane fade show active" id="description" role="tabpanel">
                                             <p>
-                                                Naive Bayes Classifier is a probabilistic machine learning algorithm based on Bayes' theorem. It is "naive" because it assumes independence between features. It is primarily used for classification tasks and works well with high-dimensional data.
+                                                Decision Tree Classifier is a machine learning algorithm used for both classification and regression tasks. It works by splitting the data into subsets based on feature values, creating a tree-like structure of decision rules.
                                             </p>
                                             <blockquote>
-                                                <strong>Bayes' Theorem:</strong> <em>P(A|B) = (P(B|A) * P(A)) / P(B)</em>
+                                                <strong>Decision Tree Structure:</strong> <em>Root Node, Internal Nodes, Leaf Nodes</em>
                                             </blockquote>
                                             <ul>
-                                                <li><strong>P(A|B):</strong> Probability of A given B (Posterior Probability).</li>
-                                                <li><strong>P(B|A):</strong> Probability of B given A (Likelihood).</li>
-                                                <li><strong>P(A):</strong> Prior Probability of A.</li>
-                                                <li><strong>P(B):</strong> Prior Probability of B.</li>
+                                                <li><strong>Root Node:</strong> The starting point of the decision tree.</li>
+                                                <li><strong>Internal Nodes:</strong> Decision points within the tree.</li>
+                                                <li><strong>Leaf Nodes:</strong> Final decision points.</li>
                                             </ul>
                                             <h5>Key Characteristics:</h5>
                                             <ul>
                                                 <li>
-                                                    <strong>Probabilistic Classifier:</strong> Predicts probabilities of each class.
+                                                    <strong>Non-linear Decision Boundary:</strong> Can capture complex relationships.
                                                 </li>
                                                 <li>
-                                                    <strong>Feature Independence:</strong> Assumes features are independent.
+                                                    <strong>Feature Importance:</strong> Identifies important features.
                                                 </li>
                                                 <li>
-                                                    <strong>Bayes' Theorem:</strong> Relies on conditional probabilities.
+                                                    <strong>Interpretability:</strong> Easy to visualize and interpret.
                                                 </li>
                                             </ul>
                                             <h5>Applications:</h5>
                                             <ul>
-                                                <li><strong>Spam Detection:</strong> Identify spam emails.</li>
-                                                <li><strong>Document Classification:</strong> Categorize text documents.</li>
-                                                <li><strong>Sentiment Analysis:</strong> Analyze the sentiment of text.</li>
-                                                <li><strong>Predictive Analysis:</strong> Forecast future outcomes.</li>
+                                                <li><strong>Predictive Analysis:</strong> Predict customer behavior.</li>
+                                                <li><strong>Medical Diagnosis:</strong> Diagnose diseases based on symptoms.</li>
+                                                <li><strong>Customer Churn Prediction:</strong> Identify customers likely to leave.</li>
+                                                <li><strong>Fraud Detection:</strong> Detect fraudulent transactions.</li>
                                             </ul>
                                             <h5>Example:</h5>
                                             <p>
-                                                Suppose we have data on email content and whether an email is spam or not. The Naive Bayes Classifier can help classify a new email as spam or non-spam based on the likelihood of certain words appearing.
+                                                Suppose we have data on customer behavior and churn status. The Decision Tree Classifier can help predict whether a customer will churn based on their behavior patterns.
                                             </p>
                                             <ul>
-                                                <li><strong>Algorithm:</strong> Naive Bayes Classification</li>
-                                                <li><strong>Outcome:</strong> Binary (0 - Not Spam, 1 - Spam)</li>
+                                                <li><strong>Algorithm:</strong> Decision Tree Classification</li>
+                                                <li><strong>Outcome:</strong> Binary (0 - No Churn, 1 - Churn)</li>
                                             </ul>
                                             <h5>Conclusion:</h5>
                                             <p>
-                                                Naive Bayes Classifier is a simple yet powerful classification tool, providing robust predictions when the assumptions hold. Despite the "naive" assumption of feature independence, it performs well in various domains.
+                                                Decision Tree Classifier is a powerful classification tool providing interpretable models and handling non-linear relationships. Despite the risk of overfitting, it remains a versatile machine learning technique across various domains.
                                             </p>
                                         </div>
                                         <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
                                             <h5>Advantages:</h5>
                                             <ul>
-                                                <li><strong>Simple to Implement:</strong> Easy to understand and implement.</li>
-                                                <li><strong>Efficient:</strong> Suitable for high-dimensional data.</li>
-                                                <li><strong>Probabilistic:</strong> Provides class probabilities.</li>
+                                                <li><strong>Easy to Interpret:</strong> Simple and interpretable.</li>
+                                                <li><strong>Non-linear Decision Boundary:</strong> Captures complex relationships.</li>
+                                                <li><strong>Feature Importance:</strong> Identifies important features.</li>
                                             </ul>
                                             <h5>Disadvantages:</h5>
                                             <ul>
-                                                <li><strong>Naive Assumption:</strong> Assumes feature independence, which may not hold true.</li>
+                                                <li><strong>Overfitting:</strong> Can overfit if the tree is too deep.</li>
                                                 <li><strong>Sensitivity to Noise:</strong> Noisy features can affect predictions.</li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="use-cases" role="tabpanel">
                                             <h5>Use Cases:</h5>
                                             <ul>
-                                                <li><strong>Spam Detection:</strong> Identify spam emails.</li>
-                                                <li><strong>Document Classification:</strong> Categorize text documents.</li>
-                                                <li><strong>Sentiment Analysis:</strong> Analyze the sentiment of text.</li>
-                                                <li><strong>Predictive Analysis:</strong> Forecast future outcomes.</li>
+                                                <li><strong>Predictive Analysis:</strong> Predict customer behavior.</li>
+                                                <li><strong>Medical Diagnosis:</strong> Diagnose diseases based on symptoms.</li>
+                                                <li><strong>Customer Churn Prediction:</strong> Identify customers likely to leave.</li>
+                                                <li><strong>Fraud Detection:</strong> Detect fraudulent transactions.</li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="implementation" role="tabpanel">
@@ -220,15 +219,15 @@
                                             <ol>
                                                 <li><strong>Data Collection:</strong> Gather labeled data.</li>
                                                 <li><strong>Data Preprocessing:</strong> Clean and normalize the data.</li>
-                                                <li><strong>Model Training:</strong> Use Naive Bayes algorithm to fit the model.</li>
-                                                <li><strong>Model Prediction:</strong> Predict the probabilities of class labels.</li>
+                                                <li><strong>Model Training:</strong> Use Decision Tree algorithm to fit the model.</li>
+                                                <li><strong>Model Prediction:</strong> Predict the class labels.</li>
                                             </ol>
                                             <h5>Example Code:</h5>
                                             <pre><code class="language-python">
-# Python Code for Naive Bayes Classifier
+# Python Code for Decision Tree Classifier
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import make_classification
 from sklearn.metrics import classification_report, accuracy_score
@@ -238,39 +237,36 @@ X, y = make_classification(n_samples=200, n_features=2, n_classes=2, random_stat
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train the model
-gnb = GaussianNB()
-gnb.fit(X_train, y_train)
+clf = DecisionTreeClassifier(random_state=42)
+clf.fit(X_train, y_train)
 
 # Predict
-y_pred = gnb.predict(X_test)
+y_pred = clf.predict(X_test)
 
 # Accuracy
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 
-# Plot
-plt.scatter(X_train[:, 0], X_train[:, 1], c=y_train, marker='o', label='Training Data', alpha=0.6)
-plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test, marker='x', label='Test Data', alpha=0.6)
-plt.xlabel('Feature 1')
-plt.ylabel('Feature 2')
-plt.legend()
+# Plot Tree
+plt.figure(figsize=(12, 8))
+plot_tree(clf, filled=True, feature_names=['Feature 1', 'Feature 2'], class_names=['Class 0', 'Class 1'])
 plt.show()
                                             </code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="faqs" role="tabpanel">
                                             <h5>Frequently Asked Questions (FAQs):</h5>
                                             <ul>
-                                                <li><strong>Q:</strong> What is the difference between Gaussian Naive Bayes and Multinomial Naive Bayes?</li>
+                                                <li><strong>Q:</strong> How do you interpret the decision tree?</li>
+                                                <li><strong>A:</strong> Each node represents a feature and threshold value. If the condition is met, go to the left child node; otherwise, go to the right child node.</li>
+                                                <li><strong>Q:</strong> What are the criteria for splitting nodes in the decision tree?</li>
                                                 <li><strong>A:</strong>
                                                     <ul>
-                                                        <li><strong>Gaussian Naive Bayes:</strong> Assumes a normal distribution of features.</li>
-                                                        <li><strong>Multinomial Naive Bayes:</strong> Used for discrete data like word counts.</li>
+                                                        <li><strong>Gini Impurity:</strong> Measures the impurity of a split.</li>
+                                                        <li><strong>Information Gain:</strong> Measures the reduction in entropy after a split.</li>
                                                     </ul>
                                                 </li>
-                                                <li><strong>Q:</strong> How does Naive Bayes handle missing data?</li>
-                                                <li><strong>A:</strong> Naive Bayes can handle missing data by treating it as a separate category.</li>
-                                                <li><strong>Q:</strong> What is the Laplace smoothing technique in Naive Bayes?</li>
-                                                <li><strong>A:</strong> Laplace smoothing adds a small constant to all probabilities to prevent zero probabilities for unseen features.</li>
+                                                <li><strong>Q:</strong> How can you prevent overfitting in decision trees?</li>
+                                                <li><strong>A:</strong> Limit the depth of the tree, require a minimum number of samples per leaf node, or use pruning techniques.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -319,21 +315,50 @@ plt.show()
 
     <!-- Plotly Graph Script -->
     <script>
-        var data = [{
-            x: [1, 2, 3, 4, 5],
-            y: [1, 2, 4, 8, 16]
-        }];
-        var layout = {
-            title: 'Naive Bayes Classifier',
-            xaxis: {
-                title: 'Features'
-            },
-            yaxis: {
-                title: 'Class Labels'
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample data generation
+            function generateDecisionTreeData() {
+                return {
+                    x: [1, 2, 3, 4, 5, 6],
+                    y: [2, 1, 4, 3, 6, 5],
+                    text: ['Root', 'Child A', 'Child B', 'Child C', 'Leaf A', 'Leaf B'],
+                    marker: {
+                        size: [40, 30, 30, 20, 10, 10],
+                        color: ['red', 'blue', 'blue', 'green', 'purple', 'orange'],
+                        opacity: [0.8, 0.8, 0.8, 0.8, 0.8, 0.8]
+                    }
+                };
             }
-        };
-        Plotly.newPlot('naiveBayesGraph', data, layout);
-    </script>
+    
+            // Decision tree data
+            let data = {
+                x: [0, 0, 1, 1, 2, 2],
+                y: [0, -1, -2, -3, -4, -5],
+                mode: 'markers+text',
+                text: ['Root Node', 'Internal Node 1', 'Internal Node 2', 'Leaf Node 1', 'Leaf Node 2'],
+                marker: {
+                    size: [40, 30, 30, 20, 10],
+                    color: ['red', 'blue', 'blue', 'green', 'purple'],
+                    opacity: [0.8, 0.8, 0.8, 0.8, 0.8]
+                },
+                type: 'scatter'
+            };
+    
+            // Edges
+            let edge_trace = {
+                x: [0, 1],
+                y: [0],
+            };
+            // Layout settings
+            let layout = {
+                title: 'Decision Tree Classifier',
+            };
 
+            // Plot the decision tree graph
+            Plotly.newPlot('decisionTreeGraph', [data], layout);
+        });
+    </script>
+    
+    
 </body>
 </html>

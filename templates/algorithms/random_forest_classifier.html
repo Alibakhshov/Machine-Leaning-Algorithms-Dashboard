@@ -1,0 +1,159 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- plugins -->
+    <link href="{% static 'plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-extended.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
+
+    <title>Random Forest Classifier</title>
+</head>
+<body>
+    <!-- Start Wrapper -->
+    <div class="wrapper">
+        <!-- Start Sidebar -->
+        {% include 'partials/sidebar.html' %}
+        <!-- End Sidebar -->
+
+        <!-- Start Top Header -->
+        {% include 'partials/header.html' %}
+        <!-- End Top Header -->
+
+        <!-- Start Page Content Wrapper -->
+        <div class="page-content-wrapper">
+            <!-- Start Page Content -->
+            <div class="page-content">
+
+                <!-- Start Breadcrumb -->
+                {% include 'partials/breadcrumb.html' %}
+                <!-- End Breadcrumb -->
+
+                <!-- Start Product Detail -->
+                <section class="shop-page">
+                    <div class="shop-container">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+                                <div class="product-detail-card">
+                                    <div class="product-detail-body">
+                                        <div class="row g-0">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="image-zoom-section">
+                                                    <div class="border rounded mb-3 p-3">
+                                                        <img src="{{ cm_image }}" alt="Random Forest Confusion Matrix" style="width:100%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7">
+                                                <div class="product-info-section p-3">
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">Random Forest Classifier</h3>
+                                                    
+                                                    <div class="mt-3">
+                                                        <h6>Description:</h6>
+                                                        <p class="mb-0">
+                                                            Random Forest Classifier is an ensemble learning method that combines multiple decision trees to improve classification performance.
+                                                        </p>
+                                                    </div>
+                                                    <dl class="row mt-3">
+                                                        <dt class="col-sm-3">Algorithm Type</dt>
+                                                        <dd class="col-sm-9">Classification</dd>
+                                                        <dt class="col-sm-3">Input Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Features)</dd>
+                                                        <dt class="col-sm-3">Output Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Class Labels)</dd>
+                                                        <dt class="col-sm-3">Applications</dt>
+                                                        <dd class="col-sm-9">
+                                                            <ul>
+                                                                <li>Predictive Analysis</li>
+                                                                <li>Medical Diagnosis</li>
+                                                                <li>Customer Churn Prediction</li>
+                                                                <li>Fraud Detection</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row -->
+                                    </div>
+                                </div>
+
+                                <!-- Feature Importance Plot -->
+                                <div class="product-more-info mt-4">
+                                    {{ feature_importance_plot|safe }}
+                                </div>
+
+                                <!-- Classification Report -->
+                                <div class="product-more-info mt-4">
+                                    <h5>Classification Report:</h5>
+                                    <ul>
+                                        <li><strong>Precision (Class 0):</strong> {{ classification_report.precision_0 }}</li>
+                                        <li><strong>Recall (Class 0):</strong> {{ classification_report.recall_0 }}</li>
+                                        <li><strong>F1-score (Class 0):</strong> {{ classification_report.f1_0 }}</li>
+                                        <li><strong>Precision (Class 1):</strong> {{ classification_report.precision_1 }}</li>
+                                        <li><strong>Recall (Class 1):</strong> {{ classification_report.recall_1 }}</li>
+                                        <li><strong>F1-score (Class 1):</strong> {{ classification_report.f1_1 }}</li>
+                                        <li><strong>Accuracy:</strong> {{ classification_report.accuracy }}</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Product Detail -->
+
+            </div>
+            <!-- End Page Content -->
+        </div>
+        <!-- End Page Content Wrapper -->
+
+        <!-- Start Back To Top Button -->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!-- End Back To Top Button -->
+
+        <!-- Start Switcher -->
+        {% include 'partials/switcher.html' %}
+        <!-- End Switcher -->
+
+        <!-- Start Overlay -->
+        <div class="overlay nav-toggle-icon"></div>
+        <!-- End Overlay -->
+
+    </div>
+    <!-- End Wrapper -->
+
+    <!-- JS Files -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!-- plugins -->
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

@@ -9,4 +9,8 @@ urlpatterns = [
     path('k-nearest-neighbor/', views.k_nearest_neighbor, name='k_nearest_neighbor'),
     path('logistic-regression/', views.logistic_regression, name='logistic_regression'),
     path('naive-bayes/', views.naive_bayes_classifier, name='naive_bayes'),
+    path('decision-tree-classifier/', views.decision_tree_classifier, name='decision_tree_classifier'),
+    path('random-forest-classifier/', views.random_forest_classifier, name='random_forest_classifier'),
+
 ]
+
