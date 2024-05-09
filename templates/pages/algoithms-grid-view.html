@@ -111,28 +111,54 @@
           
                                               <!-- Algorithm Categories -->
                                               <div class="product-categories">
-                                                  <h6 class="text-uppercase mb-3">Categories</h6>
-                                                  <ul class="list-unstyled mb-0 categories-list">
-                                                      <li>
-                                                          <a href="javascript:;" class="category-filter" data-category="Regression">Regression <span class="float-end badge rounded-pill bg-primary">2</span></a>
-                                                      </li>
-                                                      <li>
-                                                          <a href="javascript:;" class="category-filter" data-category="Classification">Classification <span class="float-end badge rounded-pill bg-primary">5</span></a>
-                                                      </li>
-                                                      <li>
-                                                          <a href="javascript:;" class="category-filter" data-category="Ensemble Methods">Ensemble Methods <span class="float-end badge rounded-pill bg-primary">3</span></a>
-                                                      </li>
-                                                      <li>
-                                                          <a href="javascript:;" class="category-filter" data-category="Neural Networks">Neural Networks <span class="float-end badge rounded-pill bg-primary">3</span></a>
-                                                      </li>
-                                                      <li>
-                                                          <a href="javascript:;" class="category-filter" data-category="Model Validation">Model Validation <span class="float-end badge rounded-pill bg-primary">1</span></a>
-                                                      </li>
-                                                      <li>
-                                                          <a href="javascript:;" class="category-filter" data-category="Model Issues">Model Issues <span class="float-end badge rounded-pill bg-primary">2</span></a>
-                                                      </li>
-                                                  </ul>
+                                                <h6 class="text-uppercase mb-3">Categories</h6>
+                                                <ul class="list-unstyled mb-0 categories-list">
+                                                    <li>
+                                                        <div class="form-check d-flex justify-content-between align-items-center">
+                                                            <input class="form-check-input category-filter" type="checkbox" id="RegressionCategory" data-category="Regression">
+                                                            <label class="form-check-label me-auto" for="RegressionCategory" style="margin-left: 7px;">Regression</label>
+                                                            <span class="badge rounded-pill bg-primary">2</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check d-flex justify-content-between align-items-center">
+                                                            <input class="form-check-input category-filter" type="checkbox" id="ClassificationCategory" data-category="Classification">
+                                                            <label class="form-check-label me-auto" for="ClassificationCategory" style="margin-left: 7px;">Classification</label>
+                                                            <span class="badge rounded-pill bg-primary">5</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check d-flex justify-content-between align-items-center">
+                                                            <input class="form-check-input category-filter" type="checkbox" id="EnsembleMethodsCategory" data-category="Ensemble Methods">
+                                                            <label class="form-check-label me-auto" for="EnsembleMethodsCategory" style="margin-left: 7px;">Ensemble Methods</label>
+                                                            <span class="badge rounded-pill bg-primary">3</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check d-flex justify-content-between align-items-center">
+                                                            <input class="form-check-input category-filter" type="checkbox" id="NeuralNetworksCategory" data-category="Neural Networks">
+                                                            <label class="form-check-label me-auto" for="NeuralNetworksCategory" style="margin-left: 7px;">Neural Networks</label>
+                                                            <span class="badge rounded-pill bg-primary">3</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check d-flex justify-content-between align-items-center">
+                                                            <input class="form-check-input category-filter" type="checkbox" id="ModelValidationCategory" data-category="Model Validation">
+                                                            <label class="form-check-label me-auto" for="ModelValidationCategory" style="margin-left: 7px;">Model Validation</label>
+                                                            <span class="badge rounded-pill bg-primary">1</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check d-flex justify-content-between align-items-center">
+                                                            <input class="form-check-input category-filter" type="checkbox" id="ModelIssuesCategory" data-category="Model Issues">
+                                                            <label class="form-check-label me-auto" for="ModelIssuesCategory" style="margin-left: 7px;">Model Issues</label>
+                                                            <span class="badge rounded-pill bg-primary">2</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                               </div>
+                                              
+                                            
                                               <hr>
           
                                               <!-- Algorithms -->
@@ -630,7 +656,7 @@
                                                   </div>
                                               </div>
 
-                                              
+
                                           </div>
                                       </div>
           
@@ -707,58 +733,54 @@
 
     <script>
       document.getElementById('filterButton').addEventListener('click', filterCards);
-    const algorithmFilters = document.querySelectorAll('.algorithm-filter');
-    const categoryFilters = document.querySelectorAll('.category-filter');
-
-    function filterCards() {
-        const selectedAlgorithms = [...algorithmFilters]
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.getAttribute('data-algorithm'));
-
-        const selectedCategories = [...categoryFilters]
-            .filter(link => link.classList.contains('active'))
-            .map(link => link.getAttribute('data-category'));
-
-        const cards = document.querySelectorAll('.card-item');
-
-        cards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            const cardAlgorithm = card.getAttribute('data-algorithm');
-
-            const matchesCategory = !selectedCategories.length || selectedCategories.includes(cardCategory);
-            const matchesAlgorithm = !selectedAlgorithms.length || selectedAlgorithms.includes(cardAlgorithm);
-
-            if (matchesCategory && matchesAlgorithm) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    categoryFilters.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            link.classList.toggle('active');
-            filterCards();
-        });
-    });
-
-    algorithmFilters.forEach(checkbox => {
-        checkbox.addEventListener('change', filterCards);
-    });
-
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const searchTerm = this.value.toLowerCase();
-        const cards = document.querySelectorAll('.card-item');
-
-        cards.forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            card.style.display = cardText.includes(searchTerm) ? 'block' : 'none';
-        });
-    });
-    </script>
-
+      const algorithmFilters = document.querySelectorAll('.algorithm-filter');
+      const categoryFilters = document.querySelectorAll('.category-filter');
+  
+      function filterCards() {
+          const selectedAlgorithms = [...algorithmFilters]
+              .filter(checkbox => checkbox.checked)
+              .map(checkbox => checkbox.getAttribute('data-algorithm'));
+  
+          const selectedCategories = [...categoryFilters]
+              .filter(checkbox => checkbox.checked)
+              .map(checkbox => checkbox.getAttribute('data-category'));
+  
+          const cards = document.querySelectorAll('.card-item');
+  
+          cards.forEach(card => {
+              const cardCategory = card.getAttribute('data-category');
+              const cardAlgorithm = card.getAttribute('data-algorithm');
+  
+              const matchesCategory = !selectedCategories.length || selectedCategories.includes(cardCategory);
+              const matchesAlgorithm = !selectedAlgorithms.length || selectedAlgorithms.includes(cardAlgorithm);
+  
+              if (matchesCategory && matchesAlgorithm) {
+                  card.style.display = 'block';
+              } else {
+                  card.style.display = 'none';
+              }
+          });
+      }
+  
+      categoryFilters.forEach(checkbox => {
+          checkbox.addEventListener('change', filterCards);
+      });
+  
+      algorithmFilters.forEach(checkbox => {
+          checkbox.addEventListener('change', filterCards);
+      });
+  
+      document.getElementById('searchInput').addEventListener('input', function () {
+          const searchTerm = this.value.toLowerCase();
+          const cards = document.querySelectorAll('.card-item');
+  
+          cards.forEach(card => {
+              const cardText = card.textContent.toLowerCase();
+              card.style.display = cardText.includes(searchTerm) ? 'block' : 'none';
+          });
+      });
+  </script>
+  
 
   </body>
 </html>
