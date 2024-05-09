@@ -8,3 +8,6 @@ def home(request):
 
 def algorithms(request):
     return render(request, 'pages/algoithms-grid-view.html')
+
+def simple_linear_regression(request):
+    return render(request, 'algorithms/simple-linear-regression.html')
