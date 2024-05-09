@@ -17,5 +17,6 @@ urlpatterns = [
     path('cross-validation/', views.cross_validation, name='cross_validation'),
     path('neural-network/', views.neural_network, name='neural_network'),
     path('recurrent-neural-network/', views.recurrent_neural_network, name='recurrent_neural_network'),
+    path('lstm/', views.lstm_neural_network, name='lstm_neural_network'),
 ]
 
