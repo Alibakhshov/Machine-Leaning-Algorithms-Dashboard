@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'index.html')
+
+def algorithms(request):
+    return render(request, 'pages/algoithms-grid-view.html')
