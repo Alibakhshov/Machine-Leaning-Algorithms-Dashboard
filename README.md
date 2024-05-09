@@ -44,6 +44,30 @@ Welcome to the Machine Learning Dashboard website! This platform is a comprehens
 └── README.md
 ```
 
+### Screenshots
+
+*Algorithms*
+![Algorithms](static/screenshots/1.png)
+
+*Algorithms with filter applied*
+![Algorithms](static/screenshots/2.png)
+
+*Decision Tree Classifier*
+![Decision Tree Classifier](static/screenshots/3.png)
+
+*Multiple Linear Regression*
+![Multiple Linear Regression](static/screenshots/4.png)
+
+*Long Short-Term Memory (LSTM)*
+![Long Short-Term Memory (LSTM)](static/screenshots/5.png)
+
+*Overfitting and Underfitting*
+![Overfitting and Underfitting](static/screenshots/6.png)
+
+*Logistic Regression*
+![Logistic Regression](static/screenshots/7.png)
+
+
 ## Algorithms Covered
 ### 1. Simple Linear Regression
 
@@ -134,10 +158,3 @@ XGBoost is an optimized gradient boosting library designed to be efficient, flex
 2. Explore the algorithms, interactive visualizations, and practical guides.
 
 
-### Screenshots
-
-![Algorithms](static/screenshots/1.png)
-*Caption for Screenshot 1*
-
-![Screenshot 2](static/screenshots/22.png)
-*Caption for Screenshot 2*
