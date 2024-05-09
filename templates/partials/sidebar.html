@@ -31,12 +31,12 @@
         </a>
         <ul>
           <li> 
-            <a href="widgets-static-widgets.html">
+            <a href="{% url 'simple_linear_regression' %}">
               <ion-icon name="ellipse-outline"></ion-icon>Simple Linear Regression
             </a>
           </li>
           <li> 
-            <a href="widgets-data-widgets.html">
+            <a href="{% url 'multiple_linear_regression' %}">
               <ion-icon name="ellipse-outline"></ion-icon>Multiple Linear Regression
             </a>
           </li>
@@ -52,31 +52,29 @@
         </a>
         <ul>
           <li> 
-            <a href="widgets-static-widgets.html">
+            <a href="{% url 'logistic_regression' %}">
               <ion-icon name="ellipse-outline"></ion-icon>Logistic Regression
             </a>
           </li>
           <li> 
-            <a href="widgets-data-widgets.html">
+            <a href="{% url 'k_nearest_neighbor' %}">
               <ion-icon name="ellipse-outline"></ion-icon>K-Nearest Neighbors
             </a>
           </li>
           
           <li> 
-            <a href="widgets-data-widgets.html">
+            <a href="{% url 'naive_bayes' %}">
               <ion-icon name="ellipse-outline"></ion-icon>Naive Bayes
             </a>
           </li>
           <li> 
-            <a href="widgets-data-widgets.html">
+            <a href="{% url 'decision_tree_classifier' %}">
               <ion-icon name="ellipse-outline"></ion-icon>Decision Tree
             </a>
           </li>
         
         </ul>
       </li>
-
-      
 
       <li>
         <a href="javascript:;" class="has-arrow">
@@ -87,26 +85,82 @@
         </a>
         <ul>
           <li> 
-            <a href="widgets-static-widgets.html">
+            <a href="{% url 'random_forest_classifier' %}">
               <ion-icon name="ellipse-outline"></ion-icon>Random Forest
             </a>
           </li>
 
           <li> 
-            <a href="widgets-data-widgets.html">
+            <a href="{% url 'adaboost_classifier' %}">
               <ion-icon name="ellipse-outline"></ion-icon>AdaBoost
             </a>
           </li>
 
           <li> 
-            <a href="widgets-data-widgets.html">
+            <a href="{% url 'xgboost_classifier' %}">
               <ion-icon name="ellipse-outline"></ion-icon>XGBoost
             </a>
           </li>
+        </ul>
       </li>
-      
-      
-      
+
+      <li>
+        <a href="javascript:;" class="has-arrow">
+          <div class="parent-icon">
+            <ion-icon name="cog-outline"></ion-icon>
+          </div>
+          <div class="menu-title">Model Evaluation</div>
+        </a>
+        <ul>
+          <li> 
+            <a href="{% url 'overfitting_underfitting' %}">
+              <ion-icon name="ellipse-outline"></ion-icon>Overfitting/Underfitting
+            </a>
+          </li>
+
+          <li> 
+            <a href="{% url 'cross_validation' %}">
+              <ion-icon name="ellipse-outline"></ion-icon>Cross Validation
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="{% url 'neural_network' %}">
+          <div class="parent-icon">
+            <ion-icon name="layers-outline"></ion-icon>
+          </div>
+          <div class="menu-title">Neural Network</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'recurrent_neural_network' %}">
+          <div class="parent-icon">
+            <ion-icon name="repeat-outline"></ion-icon>
+          </div>
+          <div class="menu-title">Recurrent Neural Network</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'lstm_neural_network' %}">
+          <div class="parent-icon">
+            <ion-icon name="layers-outline"></ion-icon>
+          </div>
+          <div class="menu-title">LSTM</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'cnn_neural_network' %}">
+          <div class="parent-icon">
+            <ion-icon name="layers-outline"></ion-icon>
+          </div>
+          <div class="menu-title">CNN</div>
+        </a>
+      </li>
     </ul>
     <!--end navigation-->
 </aside>
