@@ -474,3 +474,95 @@ def cross_validation(request):
         'comparison_html': comparison_html
     }
     return render(request, 'algorithms/cross_validation.html', context)
+
+######################################### NEURAL NETWORK  ###################################################
+
+from django.shortcuts import render
+import matplotlib
+matplotlib.use('Agg')  # Set the backend to Agg
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+import plotly.graph_objects as go
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+import base64
+import io
+import urllib
+
+def neural_network(request):
+    # Create a synthetic classification dataset
+    X, y = make_classification(n_samples=500, n_features=10, n_classes=2, random_state=42)
+
+    # Split into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Standardize the features
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+
+    # Build a simple neural network model
+    model = Sequential([
+        Dense(32, activation='relu', input_shape=(X_train.shape[1],)),
+        Dense(16, activation='relu'),
+        Dense(1, activation='sigmoid')
+    ])
+
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+    # Train the model
+    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=30, batch_size=32, verbose=0)
+
+    # Evaluate the model
+    loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+
+    # Plot the training history
+    fig1 = go.Figure()
+    fig1.add_trace(go.Scatter(x=list(range(1, 31)), y=history.history['accuracy'], mode='lines+markers', name='Training Accuracy'))
+    fig1.add_trace(go.Scatter(x=list(range(1, 31)), y=history.history['val_accuracy'], mode='lines+markers', name='Validation Accuracy'))
+    fig1.update_layout(title='Neural Network Training History',
+                       xaxis_title='Epoch',
+                       yaxis_title='Accuracy')
+    training_html = fig1.to_html(full_html=False)
+
+    # Confusion matrix
+    y_pred = (model.predict(X_test) > 0.5).astype("int32").flatten()
+    confusion_matrix = np.zeros((2, 2))
+    for true, pred in zip(y_test, y_pred):
+        confusion_matrix[true, pred] += 1
+
+    fig2 = go.Figure(data=[go.Heatmap(
+        z=confusion_matrix,
+        x=['Predicted Negative', 'Predicted Positive'],
+        y=['Actual Negative', 'Actual Positive'],
+        colorscale='Blues'
+    )])
+    fig2.update_layout(title='Confusion Matrix',
+                       xaxis_title='Predicted Label',
+                       yaxis_title='Actual Label')
+    confusion_html = fig2.to_html(full_html=False)
+
+    # Classification Report Image
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(confusion_matrix, annot=True, fmt="0.2f", cmap="Blues", cbar=False)
+    plt.ylabel("Actual")
+    plt.xlabel("Predicted")
+    plt.title("Confusion Matrix")
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    confusion_image = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    context = {
+        'training_html': training_html,
+        'confusion_html': confusion_html,
+        'confusion_image': confusion_image,
+        'accuracy': f'{accuracy:.4f}'
+    }
+
+    return render(request, 'algorithms/neural_network.html', context)

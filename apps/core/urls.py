@@ -15,5 +15,6 @@ urlpatterns = [
     path('xgboost-classifier/', views.xgboost_classifier, name='xgboost_classifier'),
     path('overfitting-underfitting/', views.overfitting_underfitting, name='overfitting_underfitting'),
     path('cross-validation/', views.cross_validation, name='cross_validation'),
+    path('neural-network/', views.neural_network, name='neural_network'),
 ]
 
