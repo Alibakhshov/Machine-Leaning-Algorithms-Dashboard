@@ -1,0 +1,368 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- loader-->
+    <link href="{% static 'css/pace.min.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/pace.min.js' %}"></script>
+
+    <!-- plugins -->
+    <link href="{% static 'plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/OwlCarousel/css/owl.carousel.min.css' %}" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-extended.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
+
+    <title>K-Nearest Neighbor Algorithm</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <!--start wrapper-->
+    <div class="wrapper">
+        <!--start sidebar-->
+        {% include 'partials/sidebar.html' %}
+        <!--end sidebar-->
+
+        <!--start top header-->
+        {% include 'partials/header.html' %}
+        <!--end top header-->
+
+        <!--start page content wrapper-->
+        <div class="page-content-wrapper">
+            <!--start page content-->
+            <div class="page-content">
+
+                <!--start breadcrumb-->
+                {% include 'partials/breadcrumb.html' %}
+                <!--end breadcrumb-->
+
+                <!--start product detail-->
+                <section class="shop-page">
+                    <div class="shop-container">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+
+                                <div class="product-detail-card">
+                                    <div class="product-detail-body">
+                                        <div class="row g-0">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="image-zoom-section">
+                                                    <div class="border rounded mb-3 p-3">
+                                                        <div id="knnGraph" style="height: 450px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7">
+                                                <div class="product-info-section p-3">
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">K-Nearest Neighbor Algorithm</h3>
+                                                    
+                                                    <div class="mt-3">
+                                                        <h6>Description:</h6>
+                                                        <p class="mb-0">
+                                                            K-Nearest Neighbor (KNN) is a non-parametric, lazy learning algorithm used for classification and regression tasks. It relies on the "k" nearest neighbors to make predictions. The "k" value represents the number of nearest neighbors to be considered. The algorithm classifies new data points based on the most frequent class of the k nearest neighbors.
+                                                        </p>
+                                                    </div>
+                                                    <dl class="row mt-3">
+                                                        <dt class="col-sm-3">Algorithm Type</dt>
+                                                        <dd class="col-sm-9">Classification, Regression</dd>
+                                                        <dt class="col-sm-3">Input Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Features)</dd>
+                                                        <dt class="col-sm-3">Output Variables</dt>
+                                                        <dd class="col-sm-9">Class Labels or Numeric Values</dd>
+                                                        <dt class="col-sm-3">Applications</dt>
+                                                        <dd class="col-sm-9">
+                                                            <ul>
+                                                                <li>Classification of Data Points</li>
+                                                                <li>Pattern Recognition</li>
+                                                                <li>Data Mining</li>
+                                                                <li>Predictive Analysis</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                    
+                                                    <hr/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                </div>
+
+                                <!--start product more info-->
+                                <div class="product-more-info mt-4">
+                                    <ul class="nav nav-tabs mb-0" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Description</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#advantages-disadvantages" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Advantages & Disadvantages</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#use-cases" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Use Cases</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#implementation" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Implementation</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#faqs" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">FAQs</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                            <p>
+                                                K-Nearest Neighbor (KNN) is a non-parametric, lazy learning algorithm used for classification and regression tasks. It makes predictions by finding the "k" nearest neighbors of a new data point and determining its class or value based on the majority class or the average of those neighbors.
+                                            </p>
+                                            <blockquote>
+                                                <strong>k-NN</strong> - Classification and Regression
+                                            </blockquote>
+                                            <ul>
+                                                <li><strong>k:</strong> Number of nearest neighbors considered.</li>
+                                                <li><strong>Classification:</strong> Predicts the class of the new data point based on the majority class of k neighbors.</li>
+                                                <li><strong>Regression:</strong> Predicts the value of the new data point based on the average of the k neighbors.</li>
+                                            </ul>
+                                            <h5>Key Characteristics:</h5>
+                                            <ul>
+                                                <li>
+                                                    <strong>Non-Parametric:</strong> Makes no assumptions about data distribution.
+                                                </li>
+                                                <li>
+                                                    <strong>Lazy Learning:</strong> Does not build a model in the training phase, instead defers processing until a query is made.
+                                                </li>
+                                                <li>
+                                                    <strong>Distance Metric:</strong> Uses Euclidean distance, Manhattan distance, or other metrics to find nearest neighbors.
+                                                </li>
+                                            </ul>
+                                            <h5>Applications:</h5>
+                                            <ul>
+                                                <li><strong>Pattern Recognition:</strong> Handwriting recognition, image classification.</li>
+                                                <li><strong>Data Mining:</strong> Customer segmentation, fraud detection.</li>
+                                                <li><strong>Predictive Analysis:</strong> Stock price prediction, disease prediction.</li>
+                                            </ul>
+                                            <h5>Example:</h5>
+                                            <p>
+                                                Suppose we have data on flower species (Setosa, Versicolor, and Virginica) based on petal and sepal measurements. A KNN model can classify a new flower sample into one of the three species based on the closest neighbors.
+                                            </p>
+                                            <p class="mb-1">
+                                                In this example, the independent variables are the petal/sepal measurements, and the dependent variable is the flower species.
+                                            </p>
+                                            <ul>
+                                                <li><strong>Algorithm:</strong> k-NN Classification</li>
+                                                <li><strong>k:</strong> 3</li>
+                                                <li><strong>Distance Metric:</strong> Euclidean Distance</li>
+                                            </ul>
+                                            <h5>Conclusion:</h5>
+                                            <p>
+                                                K-Nearest Neighbor (KNN) is a simple yet powerful classification and regression tool. It provides robust results when the data is well-preprocessed and assumes no prior distribution, making it suitable for various tasks.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
+                                            <h5>Advantages:</h5>
+                                            <ul>
+                                                <li><strong>Simple to Implement:</strong> Easy to understand and implement.</li>
+                                                <li><strong>Flexible:</strong> Can handle classification and regression tasks.</li>
+                                                <li><strong>Non-Parametric:</strong> No assumptions about data distribution.</li>
+                                            </ul>
+                                            <h5>Disadvantages:</h5>
+                                            <ul>
+                                                <li><strong>Computationally Intensive:</strong> Slow prediction due to distance calculation for each new query.</li>
+                                                <li><strong>Sensitivity to Noise:</strong> Outliers can disproportionately affect predictions.</li>
+                                                <li><strong>Curse of Dimensionality:</strong> High-dimensional data affects distance calculations.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="use-cases" role="tabpanel">
+                                            <h5>Use Cases:</h5>
+                                            <ul>
+                                                <li><strong>Pattern Recognition:</strong> Handwriting, image, and speech recognition.</li>
+                                                <li><strong>Data Mining:</strong> Customer segmentation, fraud detection.</li>
+                                                <li><strong>Predictive Analysis:</strong> Stock price, disease prediction.</li>
+                                                <li><strong>Recommendation Systems:</strong> Suggest products or services based on similarity.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="implementation" role="tabpanel">
+                                            <h5>Implementation Steps:</h5>
+                                            <ol>
+                                                <li><strong>Data Collection:</strong> Gather labeled data.</li>
+                                                <li><strong>Data Preprocessing:</strong> Clean and normalize the data.</li>
+                                                <li><strong>Distance Metric Selection:</strong> Choose Euclidean, Manhattan, or other distance metrics.</li>
+                                                <li><strong>Model Training:</strong> Store all labeled data.</li>
+                                                <li><strong>Model Prediction:</strong> Find the nearest neighbors to predict new data points.</li>
+                                            </ol>
+                                            <h5>Example Code:</h5>
+                                            <pre><code class="language-python">
+# Python Code for K-Nearest Neighbor
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_classification
+from sklearn.metrics import accuracy_score
+
+# Create synthetic data
+X, y = make_classification(n_samples=200, n_features=2, n_classes=3, n_clusters_per_class=1, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the model
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+# Predict
+y_pred = knn.predict(X_test)
+
+# Accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+# Plot
+plt.scatter(X_train[:, 0], X_train[:, 1], c=y_train, marker='o', label='Training Data', alpha=0.6)
+plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test, marker='x', label='Test Data', alpha=0.6)
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.legend()
+plt.show()
+                                            </code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="faqs" role="tabpanel">
+                                            <h5>Frequently Asked Questions (FAQs):</h5>
+                                            <ul>
+                                                <li><strong>Q:</strong> What is the difference between KNN Classification and KNN Regression?</li>
+                                                <li><strong>A:</strong> KNN Classification predicts the class of a new data point based on the majority class of its neighbors, while KNN Regression predicts the value of a new data point based on the average value of its neighbors.</li>
+                                                <li><strong>Q:</strong> How do you choose the value of "k"?</li>
+                                                <li><strong>A:</strong> The value of "k" is typically chosen through cross-validation. A smaller "k" is more sensitive to noise, while a larger "k" may smooth out the decision boundary too much.</li>
+                                                <li><strong>Q:</strong> What is the best distance metric for KNN?</li>
+                                                <li><strong>A:</strong> Euclidean distance is commonly used, but other metrics like Manhattan distance, Minkowski distance, or cosine similarity may be better for specific tasks.</li>
+                                                <li><strong>Q:</strong> How do you handle high-dimensional data in KNN?</li>
+                                                <li><strong>A:</strong> High-dimensional data can cause distance calculations to be less meaningful. Feature selection, feature engineering, or dimensionality reduction techniques like PCA can help.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end product more info-->
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--end product detail-->
+
+            </div>
+            <!--end page content-->
+        </div>
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!--End Back To Top Button-->
+  
+        <!--start switcher-->
+        {% include 'partials/switcher.html' %}
+        <!--end switcher-->
+
+        <!--start overlay-->
+        <div class="overlay nav-toggle-icon"></div>
+        <!--end overlay-->
+
+    </div>
+    <!--end wrapper-->
+
+    <!-- JS Files-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--plugins-->
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel/js/owl.carousel2.thumbs.min.js' %}"></script>
+    <script src="{% static 'js/product-details.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Plotly Graph Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate synthetic data
+            function generateData() {
+                let feature1 = [], feature2 = [], classes = [];
+                let classColors = ['red', 'blue', 'green'];
+                let n_samples = 200;
+
+                for (let i = 0; i < n_samples; i++) {
+                    let feature1Val = Math.random() * 10;
+                    let feature2Val = Math.random() * 10;
+                    let classVal = Math.floor(Math.random() * 3);
+                    feature1.push(feature1Val);
+                    feature2.push(feature2Val);
+                    classes.push(classColors[classVal]);
+                }
+                return {feature1, feature2, classes};
+            }
+
+            let data = generateData();
+
+            // Plotly data
+            let trace = {
+                x: data.feature1,
+                y: data.feature2,
+                mode: 'markers',
+                marker: {
+                    size: 8,
+                    color: data.classes,
+                },
+                type: 'scatter'
+            };
+
+            // Layout settings
+            let layout = {
+                title: 'K-Nearest Neighbor Algorithm - 2D Plot',
+                xaxis: {title: 'Feature 1'},
+                yaxis: {title: 'Feature 2'}
+            };
+
+            // Plot the graph
+            Plotly.newPlot('knnGraph', [trace], layout);
+        });
+    </script>
+
+</body>
+</html>

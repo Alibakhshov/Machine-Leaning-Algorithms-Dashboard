@@ -47,3 +47,14 @@ def simple_linear_regression(request):
 
 def multiple_linear_regression(request):
     return render(request, 'algorithms/multiple_linear_regression.html')
+
+
+######################################## K NEAREST NEIGHBORS #############################################
+
+def k_nearest_neighbor(request):
+    return render(request, 'algorithms/k_nearest_neighbor.html')
+
+######################################## LOGISTIC REGRESSION ###################################################
+
+def logistic_regression(request):
+    return render(request, 'algorithms/logistic_regression.html')

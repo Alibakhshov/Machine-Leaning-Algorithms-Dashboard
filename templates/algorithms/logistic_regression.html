@@ -1,0 +1,356 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- loader-->
+    <link href="{% static 'css/pace.min.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/pace.min.js' %}"></script>
+
+    <!-- plugins -->
+    <link href="{% static 'plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/OwlCarousel/css/owl.carousel.min.css' %}" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-extended.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
+
+    <title>Logistic Regression</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <!--start wrapper-->
+    <div class="wrapper">
+        <!--start sidebar-->
+        {% include 'partials/sidebar.html' %}
+        <!--end sidebar-->
+
+        <!--start top header-->
+        {% include 'partials/header.html' %}
+        <!--end top header-->
+
+        <!--start page content wrapper-->
+        <div class="page-content-wrapper">
+            <!--start page content-->
+            <div class="page-content">
+
+                <!--start breadcrumb-->
+                {% include 'partials/breadcrumb.html' %}
+                <!--end breadcrumb-->
+
+                <!--start product detail-->
+                <section class="shop-page">
+                    <div class="shop-container">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+
+                                <div class="product-detail-card">
+                                    <div class="product-detail-body">
+                                        <div class="row g-0">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="image-zoom-section">
+                                                    <div class="border rounded mb-3 p-3">
+                                                        <div id="logisticGraph" style="height: 450px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7">
+                                                <div class="product-info-section p-3">
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">Logistic Regression</h3>
+                                                    
+                                                    <div class="mt-3">
+                                                        <h6>Description:</h6>
+                                                        <p class="mb-0">
+                                                            Logistic Regression is a classification algorithm used to predict binary outcomes. It estimates the probability that an observation belongs to one of two classes using a logistic function, also known as the sigmoid function. The logistic function outputs probabilities ranging from 0 to 1.
+                                                        </p>
+                                                    </div>
+                                                    <dl class="row mt-3">
+                                                        <dt class="col-sm-3">Algorithm Type</dt>
+                                                        <dd class="col-sm-9">Classification</dd>
+                                                        <dt class="col-sm-3">Input Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Features)</dd>
+                                                        <dt class="col-sm-3">Output Variables</dt>
+                                                        <dd class="col-sm-9">Binary (Class Labels)</dd>
+                                                        <dt class="col-sm-3">Applications</dt>
+                                                        <dd class="col-sm-9">
+                                                            <ul>
+                                                                <li>Binary Classification</li>
+                                                                <li>Predictive Analysis</li>
+                                                                <li>Spam Detection</li>
+                                                                <li>Customer Churn Prediction</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                    
+                                                    <hr/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                </div>
+
+                                <!--start product more info-->
+                                <div class="product-more-info mt-4">
+                                    <ul class="nav nav-tabs mb-0" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Description</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#advantages-disadvantages" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Advantages & Disadvantages</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#use-cases" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Use Cases</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#implementation" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Implementation</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#faqs" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">FAQs</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                            <p>
+                                                Logistic Regression is a classification algorithm used to predict binary outcomes. It estimates the probability that an observation belongs to one of two classes using a logistic function, also known as the sigmoid function. The logistic function outputs probabilities ranging from 0 to 1.
+                                            </p>
+                                            <blockquote>
+                                                <strong>Logistic Function:</strong> <em>P(y = 1 | x) = 1 / (1 + e^(-z))</em>
+                                            </blockquote>
+                                            <ul>
+                                                <li><strong>z:</strong> Linear combination of input variables.</li>
+                                                <li><strong>Classification:</strong> Observations are classified into classes based on the predicted probability.</li>
+                                            </ul>
+                                            <h5>Key Characteristics:</h5>
+                                            <ul>
+                                                <li>
+                                                    <strong>Binary Classification:</strong> Predicts binary outcomes.
+                                                </li>
+                                                <li>
+                                                    <strong>Logistic Function:</strong> Converts linear combinations into probabilities.
+                                                </li>
+                                                <li>
+                                                    <strong>Decision Boundary:</strong> Separates data points into classes.
+                                                </li>
+                                            </ul>
+                                            <h5>Applications:</h5>
+                                            <ul>
+                                                <li><strong>Binary Classification:</strong> Spam detection, disease prediction.</li>
+                                                <li><strong>Customer Churn Prediction:</strong> Identify customers likely to leave.</li>
+                                                <li><strong>Fraud Detection:</strong> Detect fraudulent transactions.</li>
+                                            </ul>
+                                            <h5>Example:</h5>
+                                            <p>
+                                                Suppose we have data on whether a customer churns (leaves) based on their account usage. Logistic Regression can help predict whether a customer will churn based on their usage patterns.
+                                            </p>
+                                            <p class="mb-1">
+                                                In this example, the independent variables are account usage patterns, and the dependent variable is whether the customer churns.
+                                            </p>
+                                            <ul>
+                                                <li><strong>Algorithm:</strong> Logistic Regression Classification</li>
+                                                <li><strong>Outcome:</strong> Binary (0 - No Churn, 1 - Churn)</li>
+                                            </ul>
+                                            <h5>Conclusion:</h5>
+                                            <p>
+                                                Logistic Regression is a widely used classification tool for predicting binary outcomes. By understanding its assumptions and limitations, it can provide significant insights and accurate predictions across various domains.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
+                                            <h5>Advantages:</h5>
+                                            <ul>
+                                                <li><strong>Simple to Implement:</strong> Easy to understand and implement.</li>
+                                                <li><strong>Interpretability:</strong> Coefficients provide insights into the relationship between variables and outcomes.</li>
+                                                <li><strong>Predictive Power:</strong> Effective for binary classification tasks.</li>
+                                            </ul>
+                                            <h5>Disadvantages:</h5>
+                                            <ul>
+                                                <li><strong>Linearity Assumption:</strong> Assumes a linear relationship between the input variables and the log-odds.</li>
+                                                <li><strong>Sensitivity to Outliers:</strong> Outliers can disproportionately influence predictions.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="use-cases" role="tabpanel">
+                                            <h5>Use Cases:</h5>
+                                            <ul>
+                                                <li><strong>Customer Churn Prediction:</strong> Predict customers likely to leave.</li>
+                                                <li><strong>Fraud Detection:</strong> Detect fraudulent transactions.</li>
+                                                <li><strong>Spam Detection:</strong> Identify spam emails.</li>
+                                                <li><strong>Medical Diagnosis:</strong> Predict disease occurrence.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="implementation" role="tabpanel">
+                                            <h5>Implementation Steps:</h5>
+                                            <ol>
+                                                <li><strong>Data Collection:</strong> Gather labeled data.</li>
+                                                <li><strong>Data Preprocessing:</strong> Clean and normalize the data.</li>
+                                                <li><strong>Model Training:</strong> Use logistic regression to fit the model.</li>
+                                                <li><strong>Model Prediction:</strong> Predict the probability of binary outcomes.</li>
+                                            </ol>
+                                            <h5>Example Code:</h5>
+                                            <pre><code class="language-python">
+# Python Code for Logistic Regression
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_classification
+from sklearn.metrics import classification_report, accuracy_score
+
+# Create synthetic data
+X, y = make_classification(n_samples=200, n_features=2, n_classes=2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the model
+logreg = LogisticRegression()
+logreg.fit(X_train, y_train)
+
+# Predict
+y_pred = logreg.predict(X_test)
+
+# Accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+# Plot
+plt.scatter(X_train[:, 0], X_train[:, 1], c=y_train, marker='o', label='Training Data', alpha=0.6)
+plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test, marker='x', label='Test Data', alpha=0.6)
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.legend()
+plt.show()
+                                            </code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="faqs" role="tabpanel">
+                                            <h5>Frequently Asked Questions (FAQs):</h5>
+                                            <ul>
+                                                <li><strong>Q:</strong> What is the difference between Logistic Regression and Linear Regression?</li>
+                                                <li><strong>A:</strong> Logistic Regression is used for classification tasks, while Linear Regression is used for regression tasks. Logistic Regression uses the logistic function to predict probabilities, while Linear Regression predicts continuous values.</li>
+                                                <li><strong>Q:</strong> How do you interpret the coefficients in Logistic Regression?</li>
+                                                <li><strong>A:</strong>
+                                                    <ul>
+                                                        <li><strong>Coefficients:</strong> Represent the change in log-odds with a one-unit change in the predictor variable.</li>
+                                                        <li><strong>Odds Ratio:</strong> Exponentiating the coefficients provides the odds ratio, representing the change in odds for a one-unit change in the predictor.</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Q:</strong> What is the decision boundary in Logistic Regression?</li>
+                                                <li><strong>A:</strong> The decision boundary is the threshold at which the predicted probability is used to classify an observation into one of the two classes. The default threshold is 0.5.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end product more info-->
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--end product detail-->
+
+            </div>
+            <!--end page content-->
+        </div>
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!--End Back To Top Button-->
+  
+        <!--start switcher-->
+        {% include 'partials/switcher.html' %}
+        <!--end switcher-->
+
+        <!--start overlay-->
+        <div class="overlay nav-toggle-icon"></div>
+        <!--end overlay-->
+
+    </div>
+    <!--end wrapper-->
+
+    <!-- JS Files-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--plugins-->
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel/js/owl.carousel2.thumbs.min.js' %}"></script>
+    <script src="{% static 'js/product-details.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        // Logistic Regression Graph
+        var x = [];
+        var y = [];
+        for (var i = -10; i < 10; i += 0.1) {
+            x.push(i);
+            y.push(1 / (1 + Math.exp(-i)));
+        }
+
+        var trace1 = {
+            x: x,
+            y: y,
+            type: 'scatter',
+            mode: 'lines',
+            line: {
+                color: 'blue',
+                width: 2
+            }
+        };
+
+        var layout = {
+            title: 'Logistic Function',
+            xaxis: {
+                title: 'z',
+                showgrid: false
+            },
+            yaxis: {
+                title: 'P(y = 1 | x)',
+                showgrid: false
+            }
+        };
+
+        var data = [trace1];
+        Plotly.newPlot('logisticGraph', data, layout);
+    </script>
+</body>
+</html>
