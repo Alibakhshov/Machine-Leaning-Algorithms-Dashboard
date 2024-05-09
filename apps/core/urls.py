@@ -11,6 +11,6 @@ urlpatterns = [
     path('naive-bayes/', views.naive_bayes_classifier, name='naive_bayes'),
     path('decision-tree-classifier/', views.decision_tree_classifier, name='decision_tree_classifier'),
     path('random-forest-classifier/', views.random_forest_classifier, name='random_forest_classifier'),
-
+    path('adaboost-classifier/', views.adaboost_classifier, name='adaboost_classifier'),
 ]
 

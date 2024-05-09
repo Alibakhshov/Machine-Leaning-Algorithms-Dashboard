@@ -1,0 +1,293 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- plugins -->
+    <link href="{% static 'plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-extended.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/semi-dark.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/header-colors.css' %}" rel="stylesheet" />
+
+    <title>AdaBoost Classifier</title>
+</head>
+<body>
+    <!-- Start Wrapper -->
+    <div class="wrapper">
+        <!-- Start Sidebar -->
+        {% include 'partials/sidebar.html' %}
+        <!-- End Sidebar -->
+
+        <!-- Start Top Header -->
+        {% include 'partials/header.html' %}
+        <!-- End Top Header -->
+
+        <!-- Start Page Content Wrapper -->
+        <div class="page-content-wrapper">
+            <!-- Start Page Content -->
+            <div class="page-content">
+
+                <!-- Start Breadcrumb -->
+                {% include 'partials/breadcrumb.html' %}
+                <!-- End Breadcrumb -->
+
+                <!-- Start Product Detail -->
+                <section class="shop-page">
+                    <div class="shop-container">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+                                <div class="product-detail-card">
+                                    <div class="product-detail-body">
+                                        <div class="row g-0">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="image-zoom-section">
+                                                    <div class="border rounded mb-3 p-3">
+                                                        <img src="{{ cm_image }}" alt="AdaBoost Confusion Matrix" style="width:100%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7">
+                                                <div class="product-info-section p-3">
+                                                    <h3 class="mt-3 mt-lg-0 mb-0">AdaBoost Classifier</h3>
+                                                    
+                                                    <div class="mt-3">
+                                                        <h6>Description:</h6>
+                                                        <p class="mb-0">
+                                                            AdaBoost (Adaptive Boosting) is an ensemble learning method that combines multiple weak classifiers to improve classification performance.
+                                                        </p>
+                                                    </div>
+                                                    <dl class="row mt-3">
+                                                        <dt class="col-sm-3">Algorithm Type</dt>
+                                                        <dd class="col-sm-9">Ensemble Methods - Boosting</dd>
+                                                        <dt class="col-sm-3">Input Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Features)</dd>
+                                                        <dt class="col-sm-3">Output Variables</dt>
+                                                        <dd class="col-sm-9">Multiple (Class Labels)</dd>
+                                                        <dt class="col-sm-3">Applications</dt>
+                                                        <dd class="col-sm-9">
+                                                            <ul>
+                                                                <li>Predictive Analysis</li>
+                                                                <li>Fraud Detection</li>
+                                                                <li>Medical Diagnosis</li>
+                                                                <li>Marketing Analysis</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row -->
+                                    </div>
+                                </div>
+
+                                <!-- Feature Importance Plot -->
+                                <div class="product-more-info mt-4">
+                                    {{ feature_importance_plot|safe }}
+                                </div>
+
+                                <!-- Classification Report -->
+                                <div class="product-more-info mt-4">
+                                    <h5>Classification Report:</h5>
+                                    <ul>
+                                        <li><strong>Precision (Class 0):</strong> {{ classification_report.precision_0 }}</li>
+                                        <li><strong>Recall (Class 0):</strong> {{ classification_report.recall_0 }}</li>
+                                        <li><strong>F1-score (Class 0):</strong> {{ classification_report.f1_0 }}</li>
+                                        <li><strong>Precision (Class 1):</strong> {{ classification_report.precision_1 }}</li>
+                                        <li><strong>Recall (Class 1):</strong> {{ classification_report.recall_1 }}</li>
+                                        <li><strong>F1-score (Class 1):</strong> {{ classification_report.f1_1 }}</li>
+                                        <li><strong>Accuracy:</strong> {{ classification_report.accuracy }}</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Detailed Information Section -->
+                                <div class="product-more-info mt-4">
+                                    <ul class="nav nav-tabs mb-0" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Description</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#advantages-disadvantages" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Advantages & Disadvantages</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#use-cases" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Use Cases</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#implementation" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">Implementation</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#faqs" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-title text-uppercase fw-500">FAQs</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                            <h5>Description:</h5>
+                                            <p>
+                                                AdaBoost (Adaptive Boosting) is an ensemble learning algorithm that combines multiple weak classifiers to form a strong classifier. 
+                                                It focuses on instances that previous classifiers misclassified by assigning higher weights to those instances.
+                                            </p>
+                                            <ul>
+                                                <li><strong>Weak Classifier:</strong> A simple model with limited predictive power, such as a decision stump.</li>
+                                                <li><strong>Boosting:</strong> A method that combines multiple weak classifiers to create a strong classifier.</li>
+                                            </ul>
+                                            <h5>Key Characteristics:</h5>
+                                            <ul>
+                                                <li><strong>Adaptive:</strong> Adjusts weights based on classifier performance.</li>
+                                                <li><strong>Weighting:</strong> Assigns higher weights to misclassified instances.</li>
+                                                <li><strong>Combining:</strong> Aggregates the results of multiple weak classifiers.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
+                                            <h5>Advantages:</h5>
+                                            <ul>
+                                                <li><strong>Improved Accuracy:</strong> Combines weak classifiers to achieve higher accuracy.</li>
+                                                <li><strong>Feature Importance:</strong> Provides feature importance scores.</li>
+                                                <li><strong>Adaptability:</strong> Adjusts to difficult data points.</li>
+                                            </ul>
+                                            <h5>Disadvantages:</h5>
+                                            <ul>
+                                                <li><strong>Sensitivity to Noise:</strong> Can be sensitive to noisy data.</li>
+                                                <li><strong>Overfitting:</strong> May overfit on training data.</li>
+                                                <li><strong>Complexity:</strong> Increases model complexity.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="use-cases" role="tabpanel">
+                                            <h5>Use Cases:</h5>
+                                            <ul>
+                                                <li><strong>Fraud Detection:</strong> Identify fraudulent transactions.</li>
+                                                <li><strong>Marketing Analysis:</strong> Predict customer response to marketing campaigns.</li>
+                                                <li><strong>Medical Diagnosis:</strong> Diagnose diseases based on patient data.</li>
+                                                <li><strong>Predictive Analysis:</strong> Predict future trends and behaviors.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="implementation" role="tabpanel">
+                                            <h5>Implementation Steps:</h5>
+                                            <ol>
+                                                <li><strong>Data Collection:</strong> Gather training data.</li>
+                                                <li><strong>Data Preprocessing:</strong> Handle missing values and normalize data.</li>
+                                                <li><strong>Model Fitting:</strong> Train multiple weak classifiers.</li>
+                                                <li><strong>Weight Adjustment:</strong> Adjust instance weights based on classifier performance.</li>
+                                                <li><strong>Prediction:</strong> Aggregate classifier predictions.</li>
+                                            </ol>
+                                            <h5>Example Code:</h5>
+                                            <pre><code class="language-python">
+                # Python Code for AdaBoost Classifier
+                from sklearn.ensemble import AdaBoostClassifier
+                from sklearn.datasets import make_classification
+                from sklearn.model_selection import train_test_split
+                from sklearn.metrics import classification_report
+
+                # Generate synthetic data
+                X, y = make_classification(n_samples=1000, n_features=10, n_classes=2, random_state=42)
+
+                # Split data into training and test sets
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Train AdaBoost Classifier
+                clf = AdaBoostClassifier(n_estimators=50, random_state=42)
+                clf.fit(X_train, y_train)
+
+                # Make predictions
+                y_pred = clf.predict(X_test)
+
+                # Classification Report
+                report = classification_report(y_test, y_pred)
+                print(report)
+                                            </code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="faqs" role="tabpanel">
+                                            <h5>Frequently Asked Questions (FAQs):</h5>
+                                            <ul>
+                                                <li><strong>Q:</strong> What is the difference between AdaBoost and Gradient Boosting?</li>
+                                                <li><strong>A:</strong>
+                                                    <ul>
+                                                        <li><strong>AdaBoost:</strong> Focuses on instances misclassified by previous classifiers.</li>
+                                                        <li><strong>Gradient Boosting:</strong> Minimizes a differentiable loss function.</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Q:</strong> How does AdaBoost handle noise in the data?</li>
+                                                <li><strong>A:</strong> AdaBoost can be sensitive to noise, leading to overfitting. Techniques like early stopping and regularization can help reduce this issue.</li>
+                                                <li><strong>Q:</strong> What weak classifiers are commonly used with AdaBoost?</li>
+                                                <li><strong>A:</strong> Decision stumps (single-level decision trees) are commonly used as weak classifiers with AdaBoost.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Product Detail -->
+
+            </div>
+            <!-- End Page Content -->
+        </div>
+        <!-- End Page Content Wrapper -->
+
+        <!-- Start Back To Top Button -->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!-- End Back To Top Button -->
+
+        <!-- Start Switcher -->
+        {% include 'partials/switcher.html' %}
+        <!-- End Switcher -->
+
+        <!-- Start Overlay -->
+        <div class="overlay nav-toggle-icon"></div>
+        <!-- End Overlay -->
+
+    </div>
+    <!-- End Wrapper -->
+
+    <!-- JS Files -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'"></script>
+    <!-- plugins -->
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
