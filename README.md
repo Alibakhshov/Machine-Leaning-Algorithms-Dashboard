@@ -135,3 +135,9 @@ XGBoost is an optimized gradient boosting library designed to be efficient, flex
 
 
 ### Screenshots
+
+![Algorithms](static/screenshots/1.png)
+*Caption for Screenshot 1*
+
+![Screenshot 2](static/screenshots/22.png)
+*Caption for Screenshot 2*
