@@ -18,5 +18,6 @@ urlpatterns = [
     path('neural-network/', views.neural_network, name='neural_network'),
     path('recurrent-neural-network/', views.recurrent_neural_network, name='recurrent_neural_network'),
     path('lstm/', views.lstm_neural_network, name='lstm_neural_network'),
+    path('cnn/', views.cnn_neural_network, name='cnn_neural_network'),
 ]
 

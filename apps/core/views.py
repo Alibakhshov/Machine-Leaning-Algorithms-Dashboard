@@ -784,3 +784,110 @@ def lstm_neural_network(request):
     }
 
     return render(request, 'algorithms/lstm.html', context)
+
+######################################### Convolutional Neural Network (CNN) ###################################################
+
+
+from django.shortcuts import render
+import matplotlib
+matplotlib.use('Agg')  # Set the backend to Agg
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from sklearn.model_selection import train_test_split
+import plotly.graph_objects as go
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Conv2D, MaxPooling2D, Flatten, Dropout
+import base64
+import io
+import urllib
+
+def generate_image_data(n_samples=1000, img_size=(28, 28), n_classes=10):
+    """
+    Generates synthetic image data for classification.
+    - `n_samples`: Number of samples
+    - `img_size`: Image dimensions as a tuple (width, height)
+    - `n_classes`: Number of classes
+    Returns:
+    - X: Features of shape (n_samples, img_size[0], img_size[1], 1)
+    - y: Labels of shape (n_samples,)
+    """
+    X = np.random.rand(n_samples, img_size[0], img_size[1], 1)
+    y = np.random.randint(0, n_classes, n_samples)
+    return X, y
+
+def cnn_neural_network(request):
+    # Generate synthetic image data
+    X, y = generate_image_data()
+
+    # Split into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Build a Convolutional Neural Network model
+    model = Sequential([
+        Conv2D(32, (3, 3), activation='relu', input_shape=(X_train.shape[1], X_train.shape[2], 1)),
+        MaxPooling2D((2, 2)),
+        Dropout(0.25),
+        Conv2D(64, (3, 3), activation='relu'),
+        MaxPooling2D((2, 2)),
+        Dropout(0.25),
+        Flatten(),
+        Dense(128, activation='relu'),
+        Dropout(0.5),
+        Dense(10, activation='softmax')
+    ])
+
+    model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+    # Train the model
+    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=32, verbose=0)
+
+    # Evaluate the model
+    loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+
+    # Plot the training history
+    fig1 = go.Figure()
+    fig1.add_trace(go.Scatter(x=list(range(1, 11)), y=history.history['accuracy'], mode='lines+markers', name='Training Accuracy'))
+    fig1.add_trace(go.Scatter(x=list(range(1, 11)), y=history.history['val_accuracy'], mode='lines+markers', name='Validation Accuracy'))
+    fig1.update_layout(title='CNN Training History',
+                       xaxis_title='Epoch',
+                       yaxis_title='Accuracy')
+    training_html = fig1.to_html(full_html=False)
+
+    # Confusion matrix
+    y_pred = np.argmax(model.predict(X_test), axis=1)
+    confusion_matrix = np.zeros((10, 10))
+    for true, pred in zip(y_test, y_pred):
+        confusion_matrix[int(true), int(pred)] += 1
+
+    fig2 = go.Figure(data=[go.Heatmap(
+        z=confusion_matrix,
+        x=[f'Predicted {i}' for i in range(10)],
+        y=[f'Actual {i}' for i in range(10)],
+        colorscale='Blues'
+    )])
+    fig2.update_layout(title='Confusion Matrix',
+                       xaxis_title='Predicted Label',
+                       yaxis_title='Actual Label')
+    confusion_html = fig2.to_html(full_html=False)
+
+    # Classification Report Image
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(confusion_matrix, annot=True, fmt="0.2f", cmap="Blues", cbar=False)
+    plt.ylabel("Actual")
+    plt.xlabel("Predicted")
+    plt.title("Confusion Matrix")
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    confusion_image = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    context = {
+        'training_html': training_html,
+        'confusion_html': confusion_html,
+        'confusion_image': confusion_image,
+        'accuracy': f'{accuracy:.4f}'
+    }
+
+    return render(request, 'algorithms/cnn.html', context)
