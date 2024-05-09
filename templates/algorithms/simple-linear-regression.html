@@ -64,115 +64,58 @@
                     <div class="product-detail-body">
                       <div class="row g-0">
                         <div class="col-12 col-lg-5">
-                          <div class="image-zoom-section">
-                            <div class="product-gallery owl-carousel owl-theme border rounded mb-3 p-3" data-slider-id="1">
-                              <div class="item">
-                                <img src="assets/images/product-gallery/01.png" class="img-fluid" alt="">
-                              </div>
-                              <div class="item">
-                                <img src="assets/images/product-gallery/02.png" class="img-fluid" alt="">
-                              </div>
-                              <div class="item">
-                                <img src="assets/images/product-gallery/03.png" class="img-fluid" alt="">
-                              </div>
-                              <div class="item">
-                                <img src="assets/images/product-gallery/04.png" class="img-fluid" alt="">
-                              </div>
+                            <div class="image-zoom-section">
+                                <div class="product-gallery owl-carousel owl-theme border rounded mb-3 p-3" data-slider-id="1">
+                                    {{ graph_html|safe }}
+                                </div>
                             </div>
-                            <div class="owl-thumbs d-flex justify-content-center" data-slider-id="1">
-                              <button class="owl-thumb-item">
-                                <img src="assets/images/product-gallery/01.png" class="" alt="">
-                              </button>
-                              <button class="owl-thumb-item">
-                                <img src="assets/images/product-gallery/02.png" class="" alt="">
-                              </button>
-                              <button class="owl-thumb-item">
-                                <img src="assets/images/product-gallery/03.png" class="" alt="">
-                              </button>
-                              <button class="owl-thumb-item">
-                                <img src="assets/images/product-gallery/04.png" class="" alt="">
-                              </button>
-                            </div>
-                          </div>
                         </div>
                         <div class="col-12 col-lg-7">
-                          <div class="product-info-section p-3">
-                            <h3 class="mt-3 mt-lg-0 mb-0">Allen Solly Men's Polo T-Shirt</h3>
-                            <div class="product-rating d-flex align-items-center mt-2">
-                              <div class="rates cursor-pointer font-13">	<i class="bx bxs-star text-warning"></i>
-                                <i class="bx bxs-star text-warning"></i>
-                                <i class="bx bxs-star text-warning"></i>
-                                <i class="bx bxs-star text-warning"></i>
-                                <i class="bx bxs-star text-light-4"></i>
-                              </div>
-                              <div class="ms-1">
-                                <p class="mb-0">(24 Ratings)</p>
-                              </div>
-                            </div>
-                            <div class="d-flex align-items-center mt-3 gap-2">
-                              <h5 class="mb-0 text-decoration-line-through text-light-3">$98.00</h5>
-                              <h4 class="mb-0">$49.00</h4>
-                            </div>
-                            <div class="mt-3">
-                              <h6>Discription :</h6>
-                              <p class="mb-0">Virgil Abloh’s Off-White is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.</p>
-                            </div>
-                            <dl class="row mt-3">	<dt class="col-sm-3">Product id</dt>
-                              <dd class="col-sm-9">#BHU5879</dd>	<dt class="col-sm-3">Delivery</dt>
-                              <dd class="col-sm-9">Russia, USA, and Europe</dd>
-                            </dl>
-                            <div class="row row-cols-auto align-items-center mt-3">
-                              <div class="col">
-                                <label class="form-label">Quantity</label>
-                                <select class="form-select form-select-sm">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
-                              <div class="col">
-                                <label class="form-label">Size</label>
-                                <select class="form-select form-select-sm">
-                                  <option>S</option>
-                                  <option>M</option>
-                                  <option>L</option>
-                                  <option>XS</option>
-                                  <option>XL</option>
-                                </select>
-                              </div>
-                              <div class="col">
-                                <label class="form-label">Colors</label>
-                                <div class="color-indigators d-flex align-items-center gap-2">
-                                  <div class="color-indigator-item bg-primary"></div>
-                                  <div class="color-indigator-item bg-danger"></div>
-                                  <div class="color-indigator-item bg-success"></div>
-                                  <div class="color-indigator-item bg-warning"></div>
+                            <div class="product-info-section p-3">
+                                <h3 class="mt-3 mt-lg-0 mb-0">Simple Linear Regression</h3>
+                                
+                                <div class="mt-3">
+                                    <h6>Description:</h6>
+                                    <p class="mb-0">
+                                        Simple Linear Regression is a statistical method used to model the relationship between a single
+                                        independent variable and a dependent variable. It assumes a linear relationship between the variables,
+                                        represented by the equation: <em>y = mx + c</em>, where:
+                                        <ul>
+                                            <li><strong>y</strong> - Dependent Variable</li>
+                                            <li><strong>x</strong> - Independent Variable</li>
+                                            <li><strong>m</strong> - Slope of the line (coefficient)</li>
+                                            <li><strong>c</strong> - Intercept</li>
+                                        </ul>
+                                        This model is commonly used in predictive analysis to determine the strength of the relationship between
+                                        variables and predict future values.
+                                    </p>
                                 </div>
-                              </div>
+                                <dl class="row mt-3">
+                                    <dt class="col-sm-3">Algorithm Type</dt>
+                                    <dd class="col-sm-9">Regression</dd>
+                                    <dt class="col-sm-3">Input Variables</dt>
+                                    <dd class="col-sm-9">One (Independent Variable)</dd>
+                                    <dt class="col-sm-3">Output Variables</dt>
+                                    <dd class="col-sm-9">One (Dependent Variable)</dd>
+                                    <dt class="col-sm-3">Applications</dt>
+                                    <dd class="col-sm-9">
+                                        <ul>
+                                            <li>Predictive Analysis</li>
+                                            <li>Trend Estimation</li>
+                                            <li>Stock Market Analysis</li>
+                                            <li>Sales Forecasting</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <div class="d-flex gap-2 mt-3">
+                                    <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class="bx bxs-cart-add"></i>Start Modeling</a>
+                                    <a href="javascript:;" class="btn btn-light btn-ecomm"><i class="bx bx-heart"></i>Add to Wishlist</a>
+                                </div>
+                                <hr/>
+                                
                             </div>
-                            <!--end row-->
-                            <div class="d-flex gap-2 mt-3">
-                              <a href="javascript:;" class="btn btn-primary btn-ecomm">	<i class="bx bxs-cart-add"></i>Add to Cart</a> <a href="javascript:;" class="btn btn-light btn-ecomm"><i class="bx bx-heart"></i>Add to Wishlist</a>
-                            </div>
-                            <hr/>
-                            <div class="product-sharing">
-                              <ul class="list-inline">
-                                <li class="list-inline-item "> <a href="javascript:;" class="bg-facebook"><i class='bx bxl-facebook'></i></a>
-                                </li>
-                                <li class="list-inline-item">	<a href="javascript:;" class="bg-linkedin"><i class='bx bxl-linkedin'></i></a>
-                                </li>
-                                <li class="list-inline-item">	<a href="javascript:;" class="bg-twitter"><i class='bx bxl-twitter'></i></a>
-                                </li>
-                                <li class="list-inline-item">	<a href="javascript:;" class="bg-gradient-purple"><i class='bx bxl-instagram'></i></a>
-                                </li>
-                                <li class="list-inline-item">	<a href="javascript:;" class="bg-google"><i class='bx bxl-google'></i></a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
                         </div>
+                        
                       </div>
                       <!--end row-->
                     </div>
@@ -182,64 +125,216 @@
                   <!--start product more info-->
                   <div class="product-more-info mt-4">
                     <ul class="nav nav-tabs mb-0" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link" data-bs-toggle="tab" href="#discription" role="tab" aria-selected="true">
-                          <div class="d-flex align-items-center">
-                            <div class="tab-title text-uppercase fw-500">Description</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link" data-bs-toggle="tab" href="#more-info" role="tab" aria-selected="false">
-                          <div class="d-flex align-items-center">
-                            <div class="tab-title text-uppercase fw-500">More Info</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tags" role="tab" aria-selected="false">
-                          <div class="d-flex align-items-center">
-                            <div class="tab-title text-uppercase fw-500">Tags</div>
-                          </div>
-                        </a>
-                      </li>
-                      
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">
+                                <div class="d-flex align-items-center">
+                                    <div class="tab-title text-uppercase fw-500">Description</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-bs-toggle="tab" href="#advantages-disadvantages" role="tab" aria-selected="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="tab-title text-uppercase fw-500">Advantages & Disadvantages</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-bs-toggle="tab" href="#use-cases" role="tab" aria-selected="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="tab-title text-uppercase fw-500">Use Cases</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-bs-toggle="tab" href="#implementation" role="tab" aria-selected="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="tab-title text-uppercase fw-500">Implementation</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-bs-toggle="tab" href="#faqs" role="tab" aria-selected="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="tab-title text-uppercase fw-500">FAQs</div>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-content pt-3">
-                      <div class="tab-pane fade" id="discription" role="tabpanel">
-                        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
-                        <ul>
-                          <li>Not just for commute</li>
-                          <li>Branded tongue and cuff</li>
-                          <li>Super fast and amazing</li>
-                          <li>Lorem sed do eiusmod tempor</li>
-                        </ul>
-                        <p class="mb-1">Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.</p>
-                        <p class="mb-1">Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
-                      </div>
-                      <div class="tab-pane fade" id="more-info" role="tabpanel">
-                        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-                      </div>
-                      <div class="tab-pane fade" id="tags" role="tabpanel">
-                        <div class="tags-box w-50">	<a href="javascript:;" class="tag-link">Cloths</a>
-                          <a href="javascript:;" class="tag-link">Electronis</a>
-                          <a href="javascript:;" class="tag-link">Furniture</a>
-                          <a href="javascript:;" class="tag-link">Sports</a>
-                          <a href="javascript:;" class="tag-link">Men Wear</a>
-                          <a href="javascript:;" class="tag-link">Women Wear</a>
-                          <a href="javascript:;" class="tag-link">Laptops</a>
-                          <a href="javascript:;" class="tag-link">Formal Shirts</a>
-                          <a href="javascript:;" class="tag-link">Topwear</a>
-                          <a href="javascript:;" class="tag-link">Headphones</a>
-                          <a href="javascript:;" class="tag-link">Bottom Wear</a>
-                          <a href="javascript:;" class="tag-link">Bags</a>
-                          <a href="javascript:;" class="tag-link">Sofa</a>
-                          <a href="javascript:;" class="tag-link">Shoes</a>
+                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                            <p>
+                                Simple Linear Regression is a statistical method used to understand the relationship between one independent variable and one dependent variable. This relationship is assumed to be linear and is expressed in the form of a mathematical equation:
+                            </p>
+                            <blockquote>
+                                <strong>y = mx + c</strong>
+                            </blockquote>
+                            <ul>
+                                <li><strong>y</strong> - Dependent Variable (Target)</li>
+                                <li><strong>x</strong> - Independent Variable (Predictor)</li>
+                                <li><strong>m</strong> - Slope of the Line (Coefficient)</li>
+                                <li><strong>c</strong> - Intercept (Constant Term)</li>
+                            </ul>
+                            <h5>Key Characteristics:</h5>
+                            <ul>
+                                <li>
+                                    <strong>Slope (m):</strong> Determines how much the dependent variable changes for a one-unit change in the independent variable.
+                                </li>
+                                <li>
+                                    <strong>Intercept (c):</strong> Represents the value of the dependent variable when the independent variable is zero.
+                                </li>
+                                <li>
+                                    <strong>Line of Best Fit:</strong> The line that minimizes the sum of squared differences between observed values and predicted values.
+                                </li>
+                            </ul>
+                            <h5>Assumptions:</h5>
+                            <ul>
+                                <li>
+                                    <strong>Linearity:</strong> The relationship between the independent and dependent variables should be linear.
+                                </li>
+                                <li>
+                                    <strong>Homoscedasticity:</strong> The variance of residuals (error terms) should be constant across all levels of the independent variable.
+                                </li>
+                                <li>
+                                    <strong>Independence of Errors:</strong> The residuals should be independent of each other.
+                                </li>
+                                <li>
+                                    <strong>Normality:</strong> The residuals should follow a normal distribution.
+                                </li>
+                            </ul>
+                            <h5>Applications:</h5>
+                            <ul>
+                                <li>
+                                    <strong>Predictive Analysis:</strong> Predict future outcomes based on existing data.
+                                </li>
+                                <li>
+                                    <strong>Trend Estimation:</strong> Understand and project trends in historical data.
+                                </li>
+                                <li>
+                                    <strong>Stock Market Analysis:</strong> Analyze stock prices based on various factors.
+                                </li>
+                                <li>
+                                    <strong>Sales Forecasting:</strong> Predict future sales based on past performance.
+                                </li>
+                            </ul>
+                            <h5>Example:</h5>
+                            <p>
+                                Suppose we want to understand the relationship between hours studied (x) and exam scores (y). A simple linear regression model can help us predict the score based on the number of hours studied.
+                            </p>
+                            <p class="mb-1">
+                                In this example, the independent variable (x) is the number of hours studied, and the dependent variable (y) is the exam score.
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Equation:</strong> <em>y = 2x + 30</em>
+                                </li>
+                                <li>
+                                    <strong>Interpretation:</strong>
+                                    <ul>
+                                        <li>
+                                            <strong>Slope (m = 2):</strong> For every additional hour studied, the score increases by 2 points.
+                                        </li>
+                                        <li>
+                                            <strong>Intercept (c = 30):</strong> A student who doesn't study at all is expected to score 30 points.
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h5>Conclusion:</h5>
+                            <p>
+                                Simple Linear Regression is a powerful tool for predictive analysis when the relationship between the variables is linear. By understanding its assumptions and limitations, it can provide significant insights and accurate predictions in various domains.
+                            </p>
                         </div>
-                      </div>
-                      
+                        <div class="tab-pane fade" id="advantages-disadvantages" role="tabpanel">
+                            <h5>Advantages:</h5>
+                            <ul>
+                                <li><strong>Simple to Implement:</strong> The mathematical equation is straightforward and easy to understand.</li>
+                                <li><strong>Interpretability:</strong> Coefficients provide insights into the relationship between variables.</li>
+                                <li><strong>Predictive Power:</strong> Effective for forecasting and predictive analysis.</li>
+                                <li><strong>Low Computational Cost:</strong> Requires minimal computational resources.</li>
+                            </ul>
+                            <h5>Disadvantages:</h5>
+                            <ul>
+                                <li><strong>Linearity Assumption:</strong> Assumes a linear relationship between the variables, which might not hold true in all cases.</li>
+                                <li><strong>Sensitivity to Outliers:</strong> Outliers can disproportionately influence the results.</li>
+                                <li><strong>Homoscedasticity:</strong> Assumes constant variance of errors, which may not always be the case.</li>
+                                <li><strong>Overfitting:</strong> Can overfit the data if the model is too complex.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="use-cases" role="tabpanel">
+                            <h5>Use Cases:</h5>
+                            <ul>
+                                <li><strong>Marketing Analysis:</strong> Estimate the impact of marketing strategies on sales.</li>
+                                <li><strong>Financial Forecasting:</strong> Predict future stock prices based on historical data.</li>
+                                <li><strong>Healthcare Analysis:</strong> Model the relationship between treatment hours and recovery time.</li>
+                                <li><strong>Educational Research:</strong> Predict student performance based on study hours.</li>
+                                <li><strong>Economics Research:</strong> Analyze the relationship between unemployment and inflation rates.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="implementation" role="tabpanel">
+                            <h5>Implementation Steps:</h5>
+                            <ol>
+                                <li><strong>Data Collection:</strong> Gather data with one independent and one dependent variable.</li>
+                                <li><strong>Data Preprocessing:</strong> Clean and normalize the data to handle outliers or missing values.</li>
+                                <li><strong>Model Fitting:</strong> Use linear regression algorithms to fit the model.</li>
+                                <li><strong>Model Evaluation:</strong> Evaluate model performance using R-squared, RMSE, etc.</li>
+                                <li><strong>Prediction:</strong> Use the trained model to make predictions on new data.</li>
+                            </ol>
+                            <h5>Example Code:</h5>
+                            <pre><code class="language-python">
+                # Python Code for Simple Linear Regression
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from sklearn.linear_model import LinearRegression
+                
+                # Create synthetic data
+                np.random.seed(42)
+                x = np.random.rand(100, 1)
+                y = 2 * x + 1 + np.random.randn(100, 1) * 0.1
+                
+                # Train the model
+                model = LinearRegression()
+                model.fit(x, y)
+                
+                # Predict
+                y_pred = model.predict(x)
+                
+                # Plot
+                plt.scatter(x, y, color='blue', label='Data Points')
+                plt.plot(x, y_pred, color='red', label='Regression Line')
+                plt.xlabel('Independent Variable')
+                plt.ylabel('Dependent Variable')
+                plt.legend()
+                plt.show()
+                            </code></pre>
+                        </div>
+                        <div class="tab-pane fade" id="faqs" role="tabpanel">
+                            <h5>Frequently Asked Questions (FAQs):</h5>
+                            <ul>
+                                <li><strong>Q:</strong> What is the difference between Simple and Multiple Linear Regression?</li>
+                                <li><strong>A:</strong> Simple Linear Regression models the relationship between one independent variable and one dependent variable, while Multiple Linear Regression involves multiple independent variables.</li>
+                                <li><strong>Q:</strong> How do you interpret the slope and intercept of the linear regression line?</li>
+                                <li><strong>A:</strong>
+                                    <ul>
+                                        <li><strong>Slope:</strong> Indicates the rate of change of the dependent variable concerning the independent variable.</li>
+                                        <li><strong>Intercept:</strong> Represents the value of the dependent variable when the independent variable is zero.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Q:</strong> What is R-squared?</li>
+                                <li><strong>A:</strong> R-squared measures the proportion of variation in the dependent variable that is predictable from the independent variable(s).</li>
+                                <li><strong>Q:</strong> How do you handle outliers in linear regression?</li>
+                                <li><strong>A:</strong> Outliers can be handled by:
+                                    <ul>
+                                        <li>Removing them if they are errors.</li>
+                                        <li>Using robust regression techniques.</li>
+                                        <li>Transforming variables to reduce their impact.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                  </div>
+                </div>
+                
               <!--end product more info-->
 
               
