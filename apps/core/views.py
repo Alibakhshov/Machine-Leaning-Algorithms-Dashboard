@@ -58,3 +58,9 @@ def k_nearest_neighbor(request):
 
 def logistic_regression(request):
     return render(request, 'algorithms/logistic_regression.html')
+
+
+######################################## NAIVE BAYES CLASSIFIER ###################################################
+
+def naive_bayes_classifier(request):
+    return render(request, 'algorithms/naive_bayes_classifier.html')
