@@ -1,6 +1,4 @@
-Here's the README for the Machine Learning Dashboard website rewritten for a `.md` file:
 
-```markdown
 # Machine Learning Dashboard Website
 
 ## Introduction
