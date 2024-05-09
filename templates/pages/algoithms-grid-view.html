@@ -64,32 +64,20 @@
                                   <div class="card">
                                       <div class="card-body">
                                           <div class="toolbox d-flex flex-row align-items-center gap-2">
+
+
                                               <div class="d-flex flex-wrap flex-grow-1 gap-1">
-                                                  <div class="d-flex align-items-center flex-nowrap">
-                                                      <p class="mb-0 font-13 text-nowrap">Sort By:</p>
-                                                      <select class="form-select ms-3">
-                                                          <option value="menu_order" selected="selected">Default sorting</option>
-                                                          <option value="popularity">Sort by popularity</option>
-                                                          <option value="rating">Sort by average rating</option>
-                                                          <option value="date">Sort by newness</option>
-                                                          <option value="price">Sort by price: low to high</option>
-                                                          <option value="price-desc">Sort by price: high to low</option>
-                                                      </select>
-                                                  </div>
+                                                <div class="d-flex align-items-center flex-nowrap">
+                                                    <p class="mb-0 font-13 text-nowrap">Sort By:</p>
+                                                    <select class="form-select ms-3" id="sortSelect">
+                                                        <option value="default" selected="selected">Default sorting</option>
+                                                        <option value="algorithm-asc">Algorithm Name (A-Z)</option>
+                                                        <option value="algorithm-desc">Algorithm Name (Z-A)</option>
+                                                    </select>
+                                                </div>
                                               </div>
-                                              <div class="d-flex flex-wrap">
-                                                  <div class="d-flex align-items-center flex-nowrap">
-                                                      <p class="mb-0 font-13 text-nowrap">Show:</p>
-                                                      <select class="form-select ms-3">
-                                                          <option>9</option>
-                                                          <option>12</option>
-                                                          <option>16</option>
-                                                          <option>20</option>
-                                                          <option>50</option>
-                                                          <option>100</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
+                                          
+                                              
                                               <div class="btn-group">
                                                   <a href="javascript:;" class="btn btn-primary"><i class='bx bxs-grid mx-0'></i></a>
                                                   <a href="javascript:;" class="btn btn-outline-primary"><i class='bx bx-list-ul mx-0'></i></a>
@@ -733,6 +721,8 @@
 
     <script>
       document.getElementById('resetButton').addEventListener('click', resetFilters);
+      document.getElementById('sortSelect').addEventListener('change', sortCards);
+  
       const algorithmFilters = document.querySelectorAll('.algorithm-filter');
       const categoryFilters = document.querySelectorAll('.category-filter');
   
@@ -760,6 +750,8 @@
                   card.style.display = 'none';
               }
           });
+  
+          sortCards(); // Re-sort after filtering
       }
   
       function resetFilters() {
@@ -770,6 +762,27 @@
           // Show all cards
           const cards = document.querySelectorAll('.card-item');
           cards.forEach(card => card.style.display = 'block');
+  
+          // Reset sorting to default
+          document.getElementById('sortSelect').value = 'default';
+  
+          sortCards();
+      }
+  
+      function sortCards() {
+          const sortValue = document.getElementById('sortSelect').value;
+          const cardsContainer = document.getElementById('algorithmCards');
+          const cards = Array.from(cardsContainer.children);
+  
+          if (sortValue === 'algorithm-asc') {
+              cards.sort((a, b) => a.getAttribute('data-algorithm').localeCompare(b.getAttribute('data-algorithm')));
+          } else if (sortValue === 'algorithm-desc') {
+              cards.sort((a, b) => b.getAttribute('data-algorithm').localeCompare(a.getAttribute('data-algorithm')));
+          }
+  
+          // Clear and re-append sorted cards
+          cardsContainer.innerHTML = '';
+          cards.forEach(card => cardsContainer.appendChild(card));
       }
   
       categoryFilters.forEach(checkbox => {
