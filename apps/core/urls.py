@@ -13,5 +13,6 @@ urlpatterns = [
     path('random-forest-classifier/', views.random_forest_classifier, name='random_forest_classifier'),
     path('adaboost-classifier/', views.adaboost_classifier, name='adaboost_classifier'),
     path('xgboost-classifier/', views.xgboost_classifier, name='xgboost_classifier'),
+    path('overfitting-underfitting/', views.overfitting_underfitting, name='overfitting_underfitting'),
 ]
 

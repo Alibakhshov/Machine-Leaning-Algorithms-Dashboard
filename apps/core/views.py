@@ -307,3 +307,86 @@ def xgboost_classifier(request):
         'classification_report': processed_report
     }
     return render(request, 'algorithms/xgboost_classifier.html', context)
+
+######################################### Overfitting and Underfitting ###################################################
+
+from django.shortcuts import render
+import matplotlib
+matplotlib.use('Agg')  # Set the backend to Agg
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+from sklearn.datasets import make_regression
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
+from sklearn.metrics import mean_squared_error
+import plotly.graph_objects as go
+import base64
+import io
+import urllib
+
+def overfitting_underfitting(request):
+    # Generate synthetic data
+    np.random.seed(42)
+    X = np.sort(np.random.rand(100, 1) * 10, axis=0)
+    y = np.sin(X).ravel() + np.random.randn(100) * 0.1
+
+    # Fit different polynomial models
+    models = {
+        "Underfitting (Degree 1)": make_pipeline(PolynomialFeatures(1), LinearRegression()),
+        "Optimal Fit (Degree 3)": make_pipeline(PolynomialFeatures(3), LinearRegression()),
+        "Overfitting (Degree 10)": make_pipeline(PolynomialFeatures(10), LinearRegression())
+    }
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=X.squeeze(), y=y, mode='markers', name='Data Points'))
+
+    # Train and visualize each model
+    for label, model in models.items():
+        model.fit(X, y)
+        y_pred = model.predict(X)
+        fig.add_trace(go.Scatter(x=X.squeeze(), y=y_pred, mode='lines', name=label))
+
+    fig.update_layout(title='Overfitting vs Underfitting',
+                      xaxis_title='X',
+                      yaxis_title='y')
+
+    graph_html = fig.to_html(full_html=False)
+
+    # Create a heatmap showing model performance (MSE)
+    degrees = range(1, 11)
+    train_errors = []
+    test_errors = []
+
+    # Split the data into training and test sets
+    X_train, X_test = X[:80], X[80:]
+    y_train, y_test = y[:80], y[80:]
+
+    for degree in degrees:
+        model = make_pipeline(PolynomialFeatures(degree), LinearRegression())
+        model.fit(X_train, y_train)
+        train_errors.append(mean_squared_error(y_train, model.predict(X_train)))
+        test_errors.append(mean_squared_error(y_test, model.predict(X_test)))
+
+    plt.figure(figsize=(8, 6))
+    plt.plot(degrees, train_errors, label="Training Error")
+    plt.plot(degrees, test_errors, label="Test Error")
+    plt.xlabel("Model Complexity (Polynomial Degree)")
+    plt.ylabel("Mean Squared Error")
+    plt.title("Training vs Test Error (Overfitting & Underfitting)")
+    plt.legend()
+
+    # Save the error plot as an image
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    error_plot_image = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    context = {
+        'graph_html': graph_html,
+        'error_plot_image': error_plot_image
+    }
+    return render(request, 'algorithms/overfitting_underfitting.html', context)
+
