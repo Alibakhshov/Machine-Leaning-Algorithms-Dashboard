@@ -47,25 +47,25 @@ Welcome to the Machine Learning Dashboard website! This platform is a comprehens
 ### Screenshots
 
 *Algorithms*
-![Algorithms](static/screenshots/1.png)
+![Algorithms](static/images/screenshots/1.png)
 
 *Algorithms with filter applied*
-![Algorithms](static/screenshots/2.png)
+![Algorithms](static/images/screenshots/2.png)
 
 *Decision Tree Classifier*
-![Decision Tree Classifier](static/screenshots/3.png)
+![Decision Tree Classifier](static/images/screenshots/3.png)
 
 *Multiple Linear Regression*
-![Multiple Linear Regression](static/screenshots/4.png)
+![Multiple Linear Regression](static/images/screenshots/4.png)
 
 *Long Short-Term Memory (LSTM)*
-![Long Short-Term Memory (LSTM)](static/screenshots/5.png)
+![Long Short-Term Memory (LSTM)](static/images/screenshots/5.png)
 
 *Overfitting and Underfitting*
-![Overfitting and Underfitting](static/screenshots/6.png)
+![Overfitting and Underfitting](static/images/screenshots/6.png)
 
 *Logistic Regression*
-![Logistic Regression](static/screenshots/7.png)
+![Logistic Regression](static/images/screenshots/7.png)
 
 
 ## Algorithms Covered
