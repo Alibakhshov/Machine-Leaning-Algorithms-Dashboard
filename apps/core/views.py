@@ -1,13 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
 
 def algorithms(request):
     return render(request, 'pages/algoithms-grid-view.html')
 
 ###################################### SIMPLE LINEAR REGRESSION ######################################
 
-# views.py
 import plotly.express as px
 import numpy as np
 import plotly.io as pio
@@ -70,7 +67,6 @@ def decision_tree_classifier(request):
 ######################################## RANDOM FOREST ###################################################
 
 
-# views.py
 from django.shortcuts import render
 import matplotlib
 matplotlib.use('Agg')  # Set the backend to Agg
@@ -151,7 +147,7 @@ def random_forest_classifier(request):
 
 from django.shortcuts import render
 import matplotlib
-matplotlib.use('Agg')  # Set the backend to Agg
+matplotlib.use('Agg') 
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.datasets import make_classification
